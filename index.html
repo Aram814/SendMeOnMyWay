@@ -2,154 +2,118 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Send Me on My Way</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Georgia', serif;
       margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-      background-color: #f5f5f0;
-      color: #2e2e2e;
+      font-family: 'Open Sans', sans-serif;
+      color: #333;
+      background-color: #fefefe;
+    }
+
+    header {
+      background-image: url('https://media.licdn.com/dms/image/v2/D5616AQGYiTExS3ubKg/profile-displaybackgroundimage-shrink_350_1400/profile-displaybackgroundimage-shrink_350_1400/0/1726863254972?e=1756339200&v=beta&t=HC0zHZtG8OSegRBcE7Ynxw3izMG5cPUsEAjG6jzHOGk');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 20px;
+      font-style: italic;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     nav {
-      position: sticky;
-      top: 0;
-      background-color: #e0eae0;
+      background-color: #ffffffcc;
       display: flex;
       justify-content: center;
-      align-items: center;
+      padding: 10px;
+      gap: 20px;
       flex-wrap: wrap;
-      padding: 1rem;
-      z-index: 1000;
-      border-bottom: 1px solid #ccc;
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .nav-links a {
+    nav a {
       text-decoration: none;
       color: #333;
       font-weight: bold;
     }
 
-    .nav-links a:hover {
-      text-decoration: underline;
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 2rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        margin-top: 1rem;
-      }
-
-      .nav-links.show {
-        display: flex;
-      }
-
-      .hamburger {
-        display: block;
-        margin-left: auto;
-      }
-
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    header {
-      position: relative;
-      background: url('https://media.licdn.com/dms/image/v2/D5616AQGYiTExS3ubKg/profile-displaybackgroundimage-shrink_350_1400/profile-displaybackgroundimage-shrink_350_1400/0/1726863254972?e=1756339200&v=beta&t=HC0zHZtG8OSegRBcE7Ynxw3izMG5cPUsEAjG6jzHOGk') center/cover no-repeat;
-      height: 60vh;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      text-shadow: 1px 1px 4px #000;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      font-style: italic;
-      margin-top: 1rem;
-      text-shadow: 1px 1px 3px #000;
-    }
-
     section {
-      padding: 4rem 2rem;
-      max-width: 800px;
+      padding: 60px 20px;
+      max-width: 1000px;
       margin: auto;
+      border-bottom: 1px solid #ccc;
     }
 
-    h2 {
-      color: #557c55;
-      margin-bottom: 1rem;
+    section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      margin-bottom: 20px;
     }
 
     footer {
-      background-color: #e0eae0;
       text-align: center;
-      padding: 2rem;
-      margin-top: 2rem;
+      padding: 40px 20px;
+      font-size: 14px;
+      background-color: #f4f4f4;
     }
 
-    footer blockquote {
-      font-style: italic;
-      margin-top: 1rem;
-      color: #4a4a4a;
+    .services-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   </style>
 </head>
 
 <body>
-  <nav>
-    <button class="hamburger" onclick="toggleMenu()">☰</button>
-    <div class="nav-links" id="navLinks">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#resources">Resources</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
-
   <header>
-    <div>
-      <h1>Send Me on My Way</h1>
-      <p>"Walking beside the darkness of death, truly illuminates the light of life."</p>
-    </div>
+    <h1>Send Me on My Way</h1>
+    <p>"Walking beside the darkness of death, truly illuminates the light of life."</p>
   </header>
 
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#booking">Booking</a>
+    <a href="#resources">Resources</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
   <section id="about">
-    <h2>About Jennifer Thomas</h2>
-    <p>As an End-of-Life Doula, I play a vital role in providing comfort, guidance, and companionship to individuals and families who are facing the end of life. I work closely with families to understand their needs, values, and beliefs, providing holistic support that encompasses emotional, spiritual, and practical guidance.</p>
-    <p>My goal is to ensure that the dying person and their loved ones feel supported, heard, and empowered during this challenging time. I provide education and resources to help families navigate the dying process, make informed decisions about end-of-life care, and offer support and guidance during the bereavement process. My extensive training, along with my full-time presence and companionship during vigil and at death, my advocacy, and support for physical, practical, and life review needs, represent a service not widely offered elsewhere.</p>
+    <h2>About</h2>
+    <p>
+      As an End-of-Life Doula, I play a vital role in providing comfort, guidance, and companionship to individuals and families who are facing the end of life. I work closely with families to understand their needs, values, and beliefs, providing holistic support that encompasses emotional, spiritual, and practical guidance.
+    </p>
+    <p>
+      My goal is to ensure that the dying person and their loved ones feel supported, heard, and empowered during this challenging time. I provide education and resources to help families navigate the dying process, make informed decisions about end-of-life care, and offer support and guidance during the bereavement process. My extensive training, along with my full-time presence and companionship during vigil and at death, my advocacy, and support for physical, practical, and life review needs, represent a service not widely offered elsewhere.
+    </p>
     <ul>
       <li>International End of Life Doula Association</li>
       <li>End of Life Care Specialist/Death Doula</li>
-      <li>University of Georgia – Criminal Justice</li>
+      <li>University of Georgia, Criminal Justice</li>
       <li>Reiki 1 & 2 Certified</li>
       <li>Raindrop Therapy Certified</li>
     </ul>
@@ -157,78 +121,87 @@
 
   <section id="services">
     <h2>Services</h2>
-    <h3>Mindful Planning</h3>
-    <ul>
-      <li>Personalized consultations</li>
-      <li>Advance directive assistance</li>
-      <li>Legacy project development</li>
-    </ul>
-    <h3>Compassionate Presence</h3>
-    <ul>
-      <li>Emotional & spiritual support</li>
-      <li>Comfort measures facilitation</li>
-      <li>Family communication liaison</li>
-    </ul>
-    <h3>Journey Through Grief</h3>
-    <ul>
-      <li>Individual & group sessions</li>
-      <li>Memorial & ritual creation</li>
-      <li>Resource connection</li>
-    </ul>
-    <h3>Holistic Healing</h3>
-    <ul>
-      <li>Aroma Touch Massage</li>
-      <li>Distance Reiki Sessions</li>
-      <li>Raindrop Therapy</li>
-    </ul>
+    <div class="services-grid">
+      <div>
+        <h3>Mindful Planning</h3>
+        <p>Thoughtful guidance for crafting a meaningful farewell, ensuring your wishes are honored with clarity and peace.</p>
+        <ul>
+          <li>Personalized consultations</li>
+          <li>Advance directive assistance</li>
+          <li>Legacy project development</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Compassionate Presence</h3>
+        <p>Offering unwavering support and a serene presence during the active dying phase.</p>
+        <ul>
+          <li>Emotional & spiritual support</li>
+          <li>Comfort measures facilitation</li>
+          <li>Family communication liaison</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Journey Through Grief</h3>
+        <p>Providing sensitive post-death support to help navigate the complex landscape of loss.</p>
+        <ul>
+          <li>Individual & group sessions</li>
+          <li>Memorial & ritual creation</li>
+          <li>Resource connection</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Holistic Healing</h3>
+        <p>Gentle therapies that promote comfort, peace, and spiritual well-being during the end-of-life journey.</p>
+        <ul>
+          <li>Aroma Touch Massage</li>
+          <li>Distance Reiki Sessions</li>
+          <li>Raindrop Therapy</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <section id="testimonials">
     <h2>Testimonials</h2>
     <blockquote>
-      <p>I have witnessed Jennifer's compassionate listening skills... Her nonjudgmental ear offers a safe place for even the saddest of hearts. Jennifer is the ideal companion when anyone is walking through the valley of the shadow of death.</p>
-      <footer>– Heather D</footer>
+      "I have witnessed Jennifer's compassionate listening skills as she lovingly attends to our community. She is able to thoughtfully listen and engage the entire spectrum of age. The youngest kiddos adore her, the elders among us love and respect her; and the young adults/college kids confide in her. Her nonjudgemental ear offers a safe place for even the saddest of hearts. Jennifer is the ideal companion when anyone is walking through the valley of the shadow of death."
+      <footer>- Heather D</footer>
     </blockquote>
     <blockquote>
-      <p>You have a very specific skill... it's priceless really. And of course, the time spent with Dad, which he really enjoyed.</p>
-      <footer>– Joe M, Client Son</footer>
+      "You have a very specific skill that you bring to the situation... It's a big weight off my shoulders to know that there's someone else there to be double checking and keeping an eye on things at the hospital and with the hospice nurses at home, it's priceless really. And of course, the time spent with Dad, which he really enjoyed."
+      <footer>- Joe M, Client son</footer>
     </blockquote>
     <blockquote>
-      <p>I hope we never need you, but if we did, I would choose you.</p>
-      <footer>– Libby B</footer>
+      "I hope we never need you, but if we did, I would choose you."
+      <footer>- Libby B</footer>
     </blockquote>
     <blockquote>
-      <p>Recently my father became very ill with lung cancer. Jennifer... was there to comfort us and help us with making arrangements.</p>
-      <footer>– Michelle M, Client Daughter</footer>
+      "Recently my father became very ill with lung cancer. Jennifer went and spent time with him when I couldn't. He enjoyed her company. When he was taken to the hospital, she followed him there. Her presence at the hospital was so welcomed because she was able to advocate for my dad when we didn't know what to say or how to say it. Jennifer was there with us shortly after my dad passed. She was there to comfort us and help us with making arrangements."
+      <footer>- Michelle M, Client Daughter</footer>
     </blockquote>
+  </section>
+
+  <section id="booking">
+    <h2>Book a Consultation</h2>
+    <p>Please click the link below to schedule a consultation via Calendly.</p>
+    <p><a href="https://calendly.com/" target="_blank">Schedule on Calendly</a></p>
   </section>
 
   <section id="resources">
     <h2>Resources</h2>
-    <p>Helpful guides, articles, and tools coming soon. Jennifer curates this section to empower and educate families navigating the end-of-life experience.</p>
+    <p>This section will include recommended readings, grief support organizations, local hospice services, and a blog run by Jennifer.</p>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>If you're seeking guidance, support, or simply a conversation, Jennifer is here for you. Reach out to schedule a free consultation.</p>
     <p>Email: <a href="mailto:jennifer@endoflifedoula.com">jennifer@endoflifedoula.com</a></p>
     <p>Location: Ocala, Florida</p>
-    <p><a href="https://calendly.com/sendmeonmyway/consultation" target="_blank">Schedule a Consultation via Calendly</a></p>
   </section>
 
   <footer>
     <p>&copy; 2025 Send Me on My Way. All Right Reserved. | Designed by AR</p>
-    <blockquote>
-      "Death must be so beautiful. To lie in the soft brown earth, with the grasses waving above one's head, and listen to silence. To have no yesterday, and no tomorrow. To forget time, to forgive life, to be at peace." – Oscar Wilde
-    </blockquote>
+    <p><em>"Death must be so beautiful. To lie in the soft brown earth, with the grasses waving above one's head, and listen to silence. To have no yesterday, and no tomorrow. To forget time, to forgive life, to be at peace." - Oscar Wilde</em></p>
   </footer>
-
-  <script>
-    function toggleMenu() {
-      const navLinks = document.getElementById('navLinks');
-      navLinks.classList.toggle('show');
-    }
-  </script>
 </body>
 
 </html>
