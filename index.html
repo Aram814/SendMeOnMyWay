@@ -66,6 +66,24 @@
       .skip-link:focus {
           top: 0;
       }
+
+      /* Custom styles for mobile swiping */
+      .services-container {
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          scroll-snap-type: x mandatory;
+      }
+      .services-container::-webkit-scrollbar {
+          display: none;
+      }
+      .services-container {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+      }
+      .service-card {
+          scroll-snap-align: center;
+          min-width: 80%; /* Make cards take up a good portion of the screen */
+      }
     </style>
 </head>
 <body class="font-inter transition-colors duration-300">
@@ -145,9 +163,9 @@
         <!-- Services Section -->
         <section id="services" class="py-16 px-4">
             <h3 class="text-4xl font-bold text-center text-primary mb-12">My Services</h3>
-            <div class="space-y-12 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
+            <div class="services-container flex md:grid md:grid-cols-2 gap-8 md:space-y-0 pb-4 snap-x snap-mandatory">
                 <!-- Service 1 -->
-                <div class="bg-card p-8 rounded-3xl shadow-lg flex flex-col items-center text-center transition-colors-theme">
+                <div class="service-card bg-card p-8 rounded-3xl shadow-lg flex flex-col items-center text-center transition-colors-theme">
                     <div>
                         <h4 class="text-2xl font-semibold text-accent mb-4">Mindful Planning</h4>
                         <p class="text-text">Thoughtful guidance for crafting a meaningful farewell, ensuring your wishes are honored with clarity and peace.</p>
@@ -162,7 +180,7 @@
                     </div>
                 </div>
                 <!-- Service 2 -->
-                <div class="bg-card p-8 rounded-3xl shadow-lg flex flex-col items-center text-center transition-colors-theme">
+                <div class="service-card bg-card p-8 rounded-3xl shadow-lg flex flex-col items-center text-center transition-colors-theme">
                     <div>
                         <img src="IMG_9970.JPG" alt="A caring, compassionate person holding the hand of a comforting family member." class="rounded-xl w-full object-cover shadow-md mb-6" />
                     </div>
@@ -177,7 +195,7 @@
                     </div>
                 </div>
                 <!-- Service 3 -->
-                <div class="bg-card p-8 rounded-3xl shadow-lg flex flex-col items-center text-center transition-colors-theme">
+                <div class="service-card bg-card p-8 rounded-3xl shadow-lg flex flex-col items-center text-center transition-colors-theme">
                     <div>
                         <h4 class="text-2xl font-semibold text-accent mb-4">Journey Through Grief</h4>
                         <p class="text-text">Providing sensitive post-death support to help navigate the complex landscape of loss.</p>
@@ -192,7 +210,7 @@
                     </div>
                 </div>
                 <!-- Service 4 -->
-                <div class="bg-card p-8 rounded-3xl shadow-lg flex flex-col items-center text-center transition-colors-theme">
+                <div class="service-card bg-card p-8 rounded-3xl shadow-lg flex flex-col items-center text-center transition-colors-theme">
                     <div>
                         <img src="womanholdingbook.jpg" alt="A woman in a cozy sweater holding a book, with a focused and serene expression." class="rounded-xl w-full object-cover shadow-md mb-6" />
                     </div>
