@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Send Me On My Way</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+      :root {
+          --bg: #F2EFEA;
+          --text: #374151;
+          --primary: #6B7051;
+          --accent: #A5A58D;
+          --card-bg: #FFFFFF;
+          --hero-opacity: 0.6;
+      }
+
+      .dark {
+          --bg: #1A1A1A;
+          --text: #E5E7EB;
+          --primary: #A5A58D;
+          --accent: #B2A27A;
+          --card-bg: #2B2B2B;
+          --hero-opacity: 0.3;
+      }
+      
+      body {
+          background-color: var(--bg);
+          color: var(--text);
+          transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .font-inter {
+          font-family: 'Inter', sans-serif;
+      }
+      .bg-primary { background-color: var(--primary); }
+      .text-primary { color: var(--primary); }
+      .hover-primary:hover { background-color: var(--primary); }
+      .bg-accent { background-color: var(--accent); }
+      .text-accent { color: var(--accent); }
+      .hover-accent:hover { background-color: var(--accent); }
+      .bg-card { background-color: var(--card-bg); }
+      .text-card { color: var(--card-bg); }
+      .transition-colors-theme {
+          transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      }
+      .skip-link {
+          position: absolute;
+          top: -40px;
+          left: 0;
+          background: var(--primary);
+          color: white;
+          padding: 8px;
+          z-index: 1000;
+          transition: top 0.3s;
+          border-radius: 0 0 8px 8px;
+      }
+      .skip-link:focus {
+          top: 0;
+      }
+    </style>
+</head>
+<body class="font-inter transition-colors duration-300">
+    <!-- Skip to Main Content Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header with Navigation -->
+    <header class="p-6 relative z-10">
+        <nav class="flex justify-between items-center max-w-5xl mx-auto">
+            <button id="theme-toggle" class="p-2 rounded-full transition-transform duration-200 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent">
+                <svg id="theme-icon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+            </button>
+            <!-- Hamburger menu button for mobile -->
+            <button id="open-menu-btn" class="p-2 md:hidden">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+            <!-- Desktop navigation links -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="index.html#about" class="text-text hover:text-accent transition-colors">About</a>
+                <a href="index.html#services" class="text-text hover:text-accent transition-colors">Services</a>
+                <a href="index.html#testimonials" class="text-text hover:text-accent transition-colors">Testimonials</a>
+                <a href="blog.html" class="text-text hover:text-accent transition-colors">Blog</a>
+                <button id="contact-btn" class="px-4 py-2 bg-accent text-white rounded-lg hover-primary transition-colors-theme">
+                    Contact
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-card z-50 flex flex-col items-center justify-center text-center transition-colors-theme hidden">
+        <button id="close-menu-btn" class="absolute top-4 right-4 text-4xl text-text hover:text-accent">&times;</button>
+        <div class="space-y-6 flex flex-col items-center">
+            <a href="index.html#about" class="text-3xl text-primary hover:text-accent transition-colors block">About</a>
+            <a href="index.html#services" class="text-3xl text-primary hover:text-accent transition-colors block">Services</a>
+            <a href="index.html#testimonials" class="text-3xl text-primary hover:text-accent transition-colors block">Testimonials</a>
+            <a href="blog.html" class="text-3xl text-primary hover:text-accent transition-colors block">Blog</a>
+            <button id="contact-btn-mobile" class="mt-4 px-6 py-3 text-xl bg-accent text-white rounded-lg hover-primary transition-colors-theme">
+                Contact
+            </button>
+        </div>
+    </div>
+
+    <main id="main-content" class="max-w-5xl mx-auto p-6 relative">
+        <section class="text-center py-16 px-4">
+            <h2 class="text-5xl md:text-6xl font-extrabold text-primary leading-tight mb-4">
+                Blog
+            </h2>
+            <p class="text-xl text-text mb-8 max-w-2xl mx-auto">
+                Thoughts, stories, and insights from the journey.
+            </p>
+        </section>
+
+        <!-- Placeholder for Blog Posts -->
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Example Blog Post Card 1 -->
+            <div class="bg-card p-6 rounded-2xl shadow-lg transition-colors-theme">
+                <img src="IMG_9966.JPG" alt="A person looking out a window on a rainy day, in a moment of quiet reflection." class="rounded-xl w-full h-48 object-cover mb-4" />
+                <h3 class="text-2xl font-bold text-primary mb-2">The Importance of Presence</h3>
+                <p class="text-sm text-accent mb-4">October 26, 2023</p>
+                <p class="text-text text-base">In our fast-paced world, the simple act of being present can be the most profound gift we give to those nearing the end of their lives...</p>
+                <a href="#" class="mt-4 inline-block text-accent hover:text-primary font-semibold transition-colors">Read More &rarr;</a>
+            </div>
+            <!-- Example Blog Post Card 2 -->
+            <div class="bg-card p-6 rounded-2xl shadow-lg transition-colors-theme">
+                <img src="IMG_9970.JPG" alt="A caring, compassionate person holding the hand of a comforting family member." class="rounded-xl w-full h-48 object-cover mb-4" />
+                <h3 class="text-2xl font-bold text-primary mb-2">Understanding End-of-Life Wishes</h3>
+                <p class="text-sm text-accent mb-4">October 19, 2023</p>
+                <p class="text-text text-base">Navigating conversations about a final journey can be difficult. This guide provides a compassionate starting point...</p>
+                <a href="#" class="mt-4 inline-block text-accent hover:text-primary font-semibold transition-colors">Read More &rarr;</a>
+            </div>
+            <!-- Example Blog Post Card 3 -->
+            <div class="bg-card p-6 rounded-2xl shadow-lg transition-colors-theme">
+                <img src="IMG_9967.png" alt="A person writing in a notebook, with gentle hands helping them." class="rounded-xl w-full h-48 object-cover mb-4" />
+                <h3 class="text-2xl font-bold text-primary mb-2">Finding Peace in the Final Moments</h3>
+                <p class="text-sm text-accent mb-4">October 12, 2023</p>
+                <p class="text-text text-base">As a death doula, my role is to help create a serene and calm environment, ensuring dignity and peace for the dying and their loved ones...</p>
+                <a href="#" class="mt-4 inline-block text-accent hover:text-primary font-semibold transition-colors">Read More &rarr;</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-8 transition-colors-theme">
+        <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div class="mb-4 md:mb-0">
+                <p>&copy; 2023 Send Me On My Way. All Rights Reserved.</p>
+                <p>Designed by AR</p>
+            </div>
+            <div class="flex flex-col items-center md:items-start mb-4 md:mb-0">
+                <p class="italic text-sm max-w-lg mb-2">"Death must be so beautiful. To lie in the soft brown earth, with the grasses waving above one's head, and listen to silence. To have no yesterday, and no tomorrow. To forget time, to forgive life, to be at peace." - Oscar Wilde</p>
+            </div>
+            <div class="flex space-x-4 items-center">
+                <!-- Instagram Icon -->
+                <a href="https://www.instagram.com/sendmeonmywaydeathdoula/?igsh=MTUxYTNpd2E1dnkybQ%3D%3D#" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+                    </svg>
+                    <span class="sr-only">Instagram</span>
+                </a>
+                <!-- Facebook Icon -->
+                <a href="https://www.facebook.com/people/Jennifer-Thomas-Death-Doula/100091771513742" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M14 13h-2.5v7h-3v-7h-2v-3h2v-2c0-2.3 1.25-3.5 3.5-3.5h2v3h-2c-1.125 0-1.5.25-1.5 1.5v1h3.5l-.5 3z"></path>
+                    </svg>
+                    <span class="sr-only">Facebook</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Form Modal -->
+    <div id="contact-modal" class="fixed inset-0 bg-gray-950 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden" aria-modal="true">
+        <div class="bg-card rounded-xl shadow-2xl p-8 max-w-lg w-full transition-colors-theme">
+            <div class="flex justify-between items-center mb-6">
+                <h4 class="text-2xl font-bold text-primary">Contact Us</h4>
+                <button id="close-contact-modal-btn" class="text-gray-500 hover:text-gray-800 dark:hover:text-gray-300">&times;</button>
+            </div>
+            <div id="contact-submission-message" class="text-center text-lg font-semibold my-6 hidden"></div>
+            <form id="contact-form" class="space-y-4">
+                <div>
+                    <label for="name" class="block text-text font-semibold mb-1">Name</label>
+                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 bg-gray-100 dark:bg-gray-700 text-text rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required>
+                </div>
+                <div>
+                    <label for="email" class="block text-text font-semibold mb-1">Email</label>
+                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 bg-gray-100 dark:bg-gray-700 text-text rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required>
+                </div>
+                <div>
+                    <label for="message" class="block text-text font-semibold mb-1">Message</label>
+                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 bg-gray-100 dark:bg-gray-700 text-text rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required></textarea>
+                </div>
+                <div class="flex justify-end space-x-4">
+                    <button type="button" id="cancel-contact-btn" class="px-6 py-2 rounded-lg text-text hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors-theme">
+                        Cancel
+                    </button>
+                    <button type="submit" id="submit-contact-btn" class="px-6 py-2 bg-accent text-white rounded-lg hover-primary transition-colors-theme">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" aria-label="Scroll to top" class="fixed bottom-8 right-8 bg-primary text-white p-4 rounded-full shadow-lg transition-transform duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent z-50 hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactModal = document.getElementById('contact-modal');
+            const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+            const trapFocus = (modal) => {
+                const focusable = Array.from(modal.querySelectorAll(focusableElements));
+                if (focusable.length === 0) return;
+                const firstFocusable = focusable[0];
+                const lastFocusable = focusable[focusable.length - 1];
+
+                modal.addEventListener('keydown', (e) => {
+                    const isTabPressed = (e.key === 'Tab');
+                    if (!isTabPressed) return;
+
+                    if (e.shiftKey) { // Shift + Tab
+                        if (document.activeElement === firstFocusable) {
+                            lastFocusable.focus();
+                            e.preventDefault();
+                        }
+                    } else { // Tab
+                        if (document.activeElement === lastFocusable) {
+                            firstFocusable.focus();
+                            e.preventDefault();
+                        }
+                    }
+                });
+                firstFocusable.focus();
+            };
+
+            const showModal = (modal) => {
+                modal.classList.remove('hidden');
+                trapFocus(modal);
+                const form = modal.querySelector('form');
+                const messageDiv = modal.querySelector('div[id$="-submission-message"]');
+                if (form) form.classList.remove('hidden');
+                if (messageDiv) messageDiv.classList.add('hidden');
+            };
+
+            const hideModal = (modal) => {
+                modal.classList.add('hidden');
+            };
+
+            // Theme toggle functionality
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
+            const body = document.body;
+
+            const setLightMode = () => {
+                body.classList.remove('dark');
+                themeIcon.innerHTML = `<path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>`;
+            };
+
+            const setDarkMode = () => {
+                body.classList.add('dark');
+                themeIcon.innerHTML = `<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>`;
+            };
+
+            const toggleTheme = () => {
+                const isDark = body.classList.contains('dark');
+                if (isDark) {
+                    setLightMode();
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    setDarkMode();
+                    localStorage.setItem('theme', 'dark');
+                }
+            };
+            
+            // Set initial theme based on localStorage or system preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                if (savedTheme === 'dark') {
+                    setDarkMode();
+                } else {
+                    setLightMode();
+                }
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                setDarkMode();
+            } else {
+                setLightMode();
+            }
+
+            themeToggleBtn.addEventListener('click', toggleTheme);
+
+            // Event listeners for modal buttons
+            document.getElementById('contact-btn').addEventListener('click', () => showModal(contactModal));
+            document.getElementById('contact-btn-mobile').addEventListener('click', () => {
+                hideModal(document.getElementById('mobile-menu'));
+                showModal(contactModal);
+            });
+            document.getElementById('close-contact-modal-btn').addEventListener('click', () => hideModal(contactModal));
+            document.getElementById('cancel-contact-btn').addEventListener('click', () => hideModal(contactModal));
+
+            // Mobile menu logic
+            const mobileMenu = document.getElementById('mobile-menu');
+            const openMenuBtn = document.getElementById('open-menu-btn');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+
+            openMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            const closeMobileMenu = () => {
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = '';
+            };
+
+            closeMenuBtn.addEventListener('click', closeMobileMenu);
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                    closeMobileMenu();
+                }
+            });
+
+            // Form submission handler (for contact form in this file)
+            document.getElementById('contact-form').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const contactForm = e.target;
+                const contactSubmissionMessageDiv = document.getElementById('contact-submission-message');
+                const submitContactBtn = document.getElementById('submit-contact-btn');
+
+                contactSubmissionMessageDiv.textContent = 'Sorry, this form is non-functional on the blog page. Please use the contact form on the home page.';
+                contactSubmissionMessageDiv.classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
