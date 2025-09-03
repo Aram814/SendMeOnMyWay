@@ -67,20 +67,20 @@
           top: 0;
       }
 
-      /* Custom styles for mobile swiping */
-      .services-container {
+      /* Custom styles for mobile swiping on services and testimonials */
+      .services-container, .testimonials-container-mobile {
           overflow-x: auto;
           -webkit-overflow-scrolling: touch;
           scroll-snap-type: x mandatory;
       }
-      .services-container::-webkit-scrollbar {
+      .services-container::-webkit-scrollbar, .testimonials-container-mobile::-webkit-scrollbar {
           display: none;
       }
-      .services-container {
+      .services-container, .testimonials-container-mobile {
           -ms-overflow-style: none;
           scrollbar-width: none;
       }
-      .service-card {
+      .service-card, .testimonial-card-mobile {
           scroll-snap-align: center;
           min-width: 80%; /* Make cards take up a good portion of the screen */
       }
@@ -235,7 +235,7 @@
                     Add Your Testimonial
                 </button>
             </div>
-            <div id="testimonials-container" class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div id="testimonials-container" class="testimonials-container-mobile flex md:grid md:grid-cols-3 gap-8 md:space-y-0 pb-4 snap-x snap-mandatory">
                 <!-- Testimonials will be loaded here from Supabase -->
                 <p class="md:col-span-3 text-center text-text">Loading testimonials...</p>
             </div>
@@ -541,7 +541,13 @@
             // Testimonial fetching and rendering
             const fetchTestimonials = async () => {
                 const testimonialsContainer = document.getElementById('testimonials-container');
-                testimonialsContainer.innerHTML = '<p class="md:col-span-3 text-center text-text">Loading testimonials...</p>';
+                // Ensure a temporary message is visible
+                if (testimonialsContainer) {
+                    testimonialsContainer.innerHTML = '<p class="md:col-span-3 text-center text-text">Loading testimonials...</p>';
+                } else {
+                    console.error('Testimonials container not found.');
+                    return;
+                }
 
                 if (!supabaseClient) {
                     setTimeout(fetchTestimonials, 500);
@@ -556,7 +562,7 @@
                         testimonialsContainer.innerHTML = '';
                         data.forEach(testimonial => {
                             const card = document.createElement('div');
-                            card.className = 'bg-card p-6 rounded-3xl shadow-lg flex flex-col items-center text-center transition-colors-theme';
+                            card.className = 'testimonial-card-mobile bg-card p-6 rounded-3xl shadow-lg flex flex-col items-center text-center transition-colors-theme';
                             card.innerHTML = `
                                 <p class="italic text-base text-text mb-4">"${testimonial.quote}"</p>
                                 <p class="font-semibold text-accent">- ${testimonial.author}</p>
