@@ -1,207 +1,463 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Send Me on My Way</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      color: #333;
-      background-color: #fefefe;
-    }
-
-    header {
-      background-image: url('https://media.licdn.com/dms/image/v2/D5616AQGYiTExS3ubKg/profile-displaybackgroundimage-shrink_350_1400/profile-displaybackgroundimage-shrink_350_1400/0/1726863254972?e=1756339200&v=beta&t=HC0zHZtG8OSegRBcE7Ynxw3izMG5cPUsEAjG6jzHOGk');
-      background-size: cover;
-      background-position: center;
-      color: white;
-      text-align: center;
-      padding: 100px 20px;
-    }
-
-    header h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 20px;
-      font-style: italic;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    nav {
-      background-color: #ffffffcc;
-      display: flex;
-      justify-content: center;
-      padding: 10px;
-      gap: 20px;
-      flex-wrap: wrap;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-    }
-
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-      border-bottom: 1px solid #ccc;
-    }
-
-    section h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 14px;
-      background-color: #f4f4f4;
-    }
-
-    .services-grid {
-      display: grid;
-      gap: 20px;
-    }
-
-    @media (min-width: 768px) {
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Me On My Way</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+      .font-inter {
+          font-family: 'Inter', sans-serif;
       }
-    }
-  </style>
+    </style>
 </head>
+<body class="bg-[#F2EFEA] text-gray-800 font-inter transition-colors duration-300">
 
-<body>
-  <header>
-    <h1>Send Me on My Way</h1>
-    <p>"Walking beside the darkness of death, truly illuminates the light of life."</p>
-  </header>
+    <!-- Header with Navigation -->
+    <header class="p-6 relative z-10">
+        <nav class="flex justify-end items-center max-w-5xl mx-auto">
+            <div class="flex items-center space-x-4">
+                <a href="#about" class="text-gray-600 hover:text-[#A5A58D] transition-colors">About</a>
+                <a href="#services" class="text-gray-600 hover:text-[#A5A58D] transition-colors">Services</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-[#A5A58D] transition-colors">Testimonials</a>
+                <button id="contact-btn" class="px-4 py-2 bg-[#A5A58D] text-white rounded-lg hover:bg-[#6B7051] transition-colors">
+                    Contact
+                </button>
+            </div>
+        </nav>
+    </header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#testimonials">Testimonials</a>
-    <a href="#booking">Booking</a>
-    <a href="#resources">Resources</a>
-    <a href="#contact">Contact</a>
-  </nav>
+    <main class="max-w-5xl mx-auto p-6 relative">
+        <!-- Hero Section with Background Image - Updated with real image -->
+        <section class="relative text-center py-16 px-4">
+            <div class="absolute inset-0 z-0">
+                <img src="https://raw.githubusercontent.com/Aram814/SendMeOnMyWay/refs/heads/main/IMG_9973.JPG" alt="A peaceful field with mountains in the background" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-white opacity-60"></div>
+            </div>
+            <div class="relative z-10">
+                <h2 class="text-5xl md:text-6xl font-extrabold text-[#6B7051] leading-tight mb-4">
+                    Send Me On My Way
+                </h2>
+                <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Providing compassionate and holistic support for the dying and their families.
+                </p>
+                <button id="hero-contact-btn" class="px-8 py-3 bg-[#A5A58D] text-white rounded-lg shadow-lg hover:bg-[#6B7051] transition-transform duration-200 transform hover:scale-105">
+                    Begin Your Journey
+                </button>
+            </div>
+        </section>
 
-  <section id="about">
-    <h2>About</h2>
-    <p>
-      As an End-of-Life Doula, I play a vital role in providing comfort, guidance, and companionship to individuals and families who are facing the end of life. I work closely with families to understand their needs, values, and beliefs, providing holistic support that encompasses emotional, spiritual, and practical guidance.
-    </p>
-    <p>
-      My goal is to ensure that the dying person and their loved ones feel supported, heard, and empowered during this challenging time. I provide education and resources to help families navigate the dying process, make informed decisions about end-of-life care, and offer support and guidance during the bereavement process. My extensive training, along with my full-time presence and companionship during vigil and at death, my advocacy, and support for physical, practical, and life review needs, represent a service not widely offered elsewhere.
-    </p>
-    <ul>
-      <li>International End of Life Doula Association</li>
-      <li>End of Life Care Specialist/Death Doula</li>
-      <li>University of Georgia, Criminal Justice</li>
-      <li>Reiki 1 & 2 Certified</li>
-      <li>Raindrop Therapy Certified</li>
-    </ul>
-  </section>
+        <!-- About Section with Image and Text Top-Alignment and Centered Certifications -->
+        <section id="about" class="py-16 px-4 bg-white rounded-3xl shadow-lg my-12 transition-colors duration-300">
+            <h3 class="text-4xl font-bold text-center text-[#6B7051] mb-8">About Jennifer Thomas</h3>
+            
+            <!-- Main grid for image and text -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start text-lg text-gray-700 leading-relaxed text-center md:text-left">
+                <!-- Image column -->
+                <div class="flex justify-center md:justify-end">
+                    <img src="https://raw.githubusercontent.com/Aram814/SendMeOnMyWay/refs/heads/main/IMG_9971.JPG" alt="Profile image of Jennifer Thomas" class="w-full max-w-xs h-96 object-cover rounded-xl shadow-md" />
+                </div>
+                <!-- Text column -->
+                <div>
+                    <p class="mt-4 md:mt-0">
+                        Hello, I'm Jennifer Thomas, and I am a certified Death Doula dedicated to providing comfort, clarity, and dignity during the final stages of life. I work closely with families to understand their needs, values, and beliefs, providing holistic support that encompasses emotional, spiritual, and practical guidance.
+                    </p>
+                    <p class="mt-4">
+                        My goal is to ensure that the dying person and their loved ones feel supported, heard, and empowered during this challenging time. My extensive training, along with my full-time presence and companionship during vigil and at death, my advocacy, and support for physical, practical, and life review needs, represent a service not widely offered elsewhere.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Certifications Section below the main grid -->
+            <div class="mt-12 text-center">
+                <h4 class="font-semibold text-lg text-[#6B7051] mb-2">My Certifications Include:</h4>
+                <ul class="list-disc list-inside text-gray-700 space-y-1 w-fit mx-auto">
+                    <li>International End of Life Doula Association</li>
+                    <li>End of Life Care Specialist/Death Doula</li>
+                    <li>University of Georgia, Criminal Justice</li>
+                    <li>Reiki 1 & 2 Certified</li>
+                    <li>Raindrop Therapy Certified</li>
+                    <li>Somatic Mind-Body Healing Practitioner</li>
+                </ul>
+            </div>
+        </section>
 
-  <section id="services">
-    <h2>Services</h2>
-    <div class="services-grid">
-      <div>
-        <h3>Mindful Planning</h3>
-        <p>Thoughtful guidance for crafting a meaningful farewell, ensuring your wishes are honored with clarity and peace.</p>
-        <ul>
-          <li>Personalized consultations</li>
-          <li>Advance directive assistance</li>
-          <li>Legacy project development</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Compassionate Presence</h3>
-        <p>Offering unwavering support and a serene presence during the active dying phase.</p>
-        <ul>
-          <li>Emotional & spiritual support</li>
-          <li>Comfort measures facilitation</li>
-          <li>Family communication liaison</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Journey Through Grief</h3>
-        <p>Providing sensitive post-death support to help navigate the complex landscape of loss.</p>
-        <ul>
-          <li>Individual & group sessions</li>
-          <li>Memorial & ritual creation</li>
-          <li>Resource connection</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Holistic Healing</h3>
-        <p>Gentle therapies that promote comfort, peace, and spiritual well-being during the end-of-life journey.</p>
-        <ul>
-          <li>Aroma Touch Massage</li>
-          <li>Distance Reiki Sessions</li>
-          <li>Raindrop Therapy</li>
-        </ul>
-      </div>
+        <!-- Services Section with alternating image and text layout -->
+        <section id="services" class="py-16 px-4">
+            <h3 class="text-4xl font-bold text-center text-[#6B7051] mb-12">My Services</h3>
+            <div class="space-y-12 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-lg flex flex-col items-center text-center">
+                    <div>
+                        <h4 class="text-2xl font-semibold text-[#A5A58D] mb-4">Mindful Planning</h4>
+                        <p class="text-gray-700">Thoughtful guidance for crafting a meaningful farewell, ensuring your wishes are honored with clarity and peace.</p>
+                        <ul class="list-disc list-inside text-gray-700 mt-4 space-y-1 text-left">
+                            <li>Personalized consultations</li>
+                            <li>Advance directive assistance</li>
+                            <li>Legacy project development</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="https://raw.githubusercontent.com/Aram814/SendMeOnMyWay/refs/heads/main/IMG_9967.png" alt="Mindful Planning" class="rounded-xl w-full h-64 object-cover shadow-md mt-6" />
+                    </div>
+                </div>
+                <!-- Service 2 - Updated with real image -->
+                <div class="bg-white p-8 rounded-3xl shadow-lg flex flex-col items-center text-center">
+                    <div>
+                        <img src="https://raw.githubusercontent.com/Aram814/SendMeOnMyWay/refs/heads/main/IMG_9972.JPG" alt="A person's hands holding a flower" class="rounded-xl w-full object-cover shadow-md mb-6" />
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-semibold text-[#A5A58D] mb-4">Compassionate Presence</h4>
+                        <p class="text-gray-700">Offering unwavering support and a serene presence during the active dying phase.</p>
+                        <ul class="list-disc list-inside text-gray-700 mt-4 space-y-1 text-left">
+                            <li>Emotional & spiritual support</li>
+                            <li>Comfort measures facilitation</li>
+                            <li>Family communication liaison</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded-3xl shadow-lg flex flex-col items-center text-center">
+                    <div>
+                        <h4 class="text-2xl font-semibold text-[#A5A58D] mb-4">Journey Through Grief</h4>
+                        <p class="text-gray-700">Providing sensitive post-death support to help navigate the complex landscape of loss.</p>
+                        <ul class="list-disc list-inside text-gray-700 mt-4 space-y-1 text-left">
+                            <li>Individual & group sessions</li>
+                            <li>Memorial & ritual creation</li>
+                            <li>Resource connection</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="https://raw.githubusercontent.com/Aram814/SendMeOnMyWay/refs/heads/main/IMG_9966.JPG" alt="Journey Through Grief" class="rounded-xl w-full object-cover shadow-md mt-6" />
+                    </div>
+                </div>
+                <!-- Service 4 - Updated with real image -->
+                <div class="bg-white p-8 rounded-3xl shadow-lg flex flex-col items-center text-center">
+                    <div>
+                        <img src="https://raw.githubusercontent.com/Aram814/SendMeOnMyWay/refs/heads/main/womanholdingbook.jpg" alt="Essential oils in a wooden bowl with a sprig of a plant" class="rounded-xl w-full object-cover shadow-md mb-6" />
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-semibold text-[#A5A58D] mb-4">Holistic Healing</h4>
+                        <p class="text-gray-700">Gentle therapies that promote comfort, peace, and spiritual well-being during the end-of-life journey.</p>
+                        <ul class="list-disc list-inside text-gray-700 mt-4 space-y-1 text-left">
+                            <li>Aroma Touch Massage</li>
+                            <li>Distance Reiki Sessions</li>
+                            <li>Raindrop Therapy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-16 px-4">
+            <h3 class="text-4xl font-bold text-center text-[#6B7051] mb-8">Kind Words</h3>
+            <div class="flex justify-center mb-8">
+                <button id="add-testimonial-btn" class="px-6 py-2 bg-[#A5A58D] text-white rounded-lg shadow-lg hover:bg-[#6B7051] transition-transform duration-200 transform hover:scale-105">
+                    Add Your Testimonial
+                </button>
+            </div>
+            <div id="testimonials-container" class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <!-- Testimonials will be loaded here from Supabase -->
+                <p class="md:col-span-3 text-center text-gray-500">Loading testimonials...</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#6B7051] text-white py-8">
+        <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div class="mb-4 md:mb-0">
+                <p>&copy; 2024 Send Me On My Way. All Rights Reserved.</p>
+            </div>
+            
+            <div class="flex flex-col items-center md:items-start mb-4 md:mb-0">
+                <p class="italic text-sm max-w-lg mb-2">"Death must be so beautiful. To lie in the soft brown earth, with the grasses waving above one's head, and listen to silence. To have no yesterday, and no tomorrow. To forget time, to forgive life, to be at peace." - Oscar Wilde</p>
+            </div>
+            
+            <div class="flex space-x-4 items-center">
+                <!-- Instagram Icon -->
+                <a href="https://www.instagram.com/sendmeonmywaydeathdoula" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+                    </svg>
+                    <span class="sr-only">Instagram</span>
+                </a>
+                <!-- Facebook Icon -->
+                <a href="https://www.facebook.com/people/Jennifer-Thomas-Death-Doula/100091771513742" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M14 13h-2.5v7h-3v-7h-2v-3h2v-2c0-2.3 1.25-3.5 3.5-3.5h2v3h-2c-1.125 0-1.5.25-1.5 1.5v1h3.5l-.5 3z"></path>
+                    </svg>
+                    <span class="sr-only">Facebook</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Form Modal -->
+    <div id="contact-modal" class="fixed inset-0 bg-gray-950 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-white rounded-xl shadow-2xl p-8 max-w-lg w-full transition-colors duration-300">
+            <div class="flex justify-between items-center mb-6">
+                <h4 class="text-2xl font-bold text-[#6B7051]">Contact Us</h4>
+                <button id="close-contact-modal-btn" class="text-gray-500 hover:text-gray-800">&times;</button>
+            </div>
+            <div id="contact-submission-message" class="text-center text-lg font-semibold my-6 hidden"></div>
+            <form id="contact-form" class="space-y-4">
+                <div>
+                    <label for="name" class="block text-gray-700 font-semibold mb-1">Name</label>
+                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A5A58D]" required>
+                </div>
+                <div>
+                    <label for="email" class="block text-gray-700 font-semibold mb-1">Email</label>
+                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A5A58D]" required>
+                </div>
+                <div>
+                    <label for="message" class="block text-gray-700 font-semibold mb-1">Message</label>
+                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A5A58D]" required></textarea>
+                </div>
+                <div class="flex justify-end space-x-4">
+                    <button type="button" id="cancel-contact-btn" class="px-6 py-2 rounded-lg text-gray-600 hover:bg-gray-200 transition-colors">
+                        Cancel
+                    </button>
+                    <button type="submit" id="submit-contact-btn" class="px-6 py-2 bg-[#A5A58D] text-white rounded-lg hover:bg-[#6B7051] transition-colors">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-  </section>
 
-  <section id="testimonials">
-    <h2>Testimonials</h2>
-    <blockquote>
-      "I have witnessed Jennifer's compassionate listening skills as she lovingly attends to our community. She is able to thoughtfully listen and engage the entire spectrum of age. The youngest kiddos adore her, the elders among us love and respect her; and the young adults/college kids confide in her. Her nonjudgemental ear offers a safe place for even the saddest of hearts. Jennifer is the ideal companion when anyone is walking through the valley of the shadow of death."
-      <footer>- Heather D</footer>
-    </blockquote>
-    <blockquote>
-      "You have a very specific skill that you bring to the situation... It's a big weight off my shoulders to know that there's someone else there to be double checking and keeping an eye on things at the hospital and with the hospice nurses at home, it's priceless really. And of course, the time spent with Dad, which he really enjoyed."
-      <footer>- Joe M, Client son</footer>
-    </blockquote>
-    <blockquote>
-      "I hope we never need you, but if we did, I would choose you."
-      <footer>- Libby B</footer>
-    </blockquote>
-    <blockquote>
-      "Recently my father became very ill with lung cancer. Jennifer went and spent time with him when I couldn't. He enjoyed her company. When he was taken to the hospital, she followed him there. Her presence at the hospital was so welcomed because she was able to advocate for my dad when we didn't know what to say or how to say it. Jennifer was there with us shortly after my dad passed. She was there to comfort us and help us with making arrangements."
-      <footer>- Michelle M, Client Daughter</footer>
-    </blockquote>
-  </section>
+    <!-- Testimonial Form Modal -->
+    <div id="testimonial-modal" class="fixed inset-0 bg-gray-950 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-white rounded-xl shadow-2xl p-8 max-w-lg w-full transition-colors duration-300">
+            <div class="flex justify-between items-center mb-6">
+                <h4 class="text-2xl font-bold text-[#6B7051]">Add Your Testimonial</h4>
+                <button id="close-testimonial-modal-btn" class="text-gray-500 hover:text-gray-800">&times;</button>
+            </div>
+            <div id="testimonial-submission-message" class="text-center text-lg font-semibold my-6 hidden"></div>
+            <form id="testimonial-form" class="space-y-4">
+                <div>
+                    <label for="testimonial-quote" class="block text-gray-700 font-semibold mb-1">Your Testimonial</label>
+                    <textarea id="testimonial-quote" name="quote" rows="4" class="w-full px-4 py-2 border border-gray-300 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A5A58D]" required></textarea>
+                </div>
+                <div>
+                    <label for="testimonial-author" class="block text-gray-700 font-semibold mb-1">Your Name</label>
+                    <input type="text" id="testimonial-author" name="author" class="w-full px-4 py-2 border border-gray-300 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A5A58D]" required>
+                </div>
+                <div class="flex justify-end space-x-4">
+                    <button type="button" id="cancel-testimonial-btn" class="px-6 py-2 rounded-lg text-gray-600 hover:bg-gray-200 transition-colors">
+                        Cancel
+                    </button>
+                    <button type="submit" id="submit-testimonial-btn" class="px-6 py-2 bg-[#A5A58D] text-white rounded-lg hover:bg-[#6B7051] transition-colors">
+                        Submit Testimonial
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-  <section id="booking">
-    <h2>Book a Consultation</h2>
-    <p>Please click the link below to schedule a consultation via Calendly.</p>
-    <p><a href="https://calendly.com/" target="_blank">Schedule on Calendly</a></p>
-  </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
 
-  <section id="resources">
-    <h2>Resources</h2>
-    <p>Recommended readings, grief support organizations, local hospice services, and blog to come.</p>
-  </section>
+            // IMPORTANT: The URL and Key have been replaced with the ones you provided.
+            const supabaseUrl = 'https://zmjrlezcjwolzvvzglvi.supabase.co';
+            const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InptanJsZXpjandvbHp2dnpnbHZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY5MTQ4NTQsImV4cCI6MjA3MjQ5MDg1NH0.JRcNdAUC4ZLB7bCLwXEXeyr_sV2nQ7k_XY11TV_AooU';
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:jennifer@sendmeonmyway.info">jennifer@sendmeonmyway.info</a></p>
-    <p>Location: Ocala, Florida</p>
-  </section>
+            // Load Supabase from CDN
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+            document.body.appendChild(script);
 
-  <footer>
-    <p>&copy; 2025 Send Me on My Way. All Right Reserved. | Designed by AR</p>
-    <p><em>"Death must be so beautiful. To lie in the soft brown earth, with the grasses waving above one's head, and listen to silence. To have no yesterday, and no tomorrow. To forget time, to forgive life, to be at peace." - Oscar Wilde</em></p>
-  </footer>
+            let supabaseClient = null;
+            let supabaseStatus = 'Loading...';
+
+            script.onload = () => {
+                if (window.supabase && window.supabase.createClient) {
+                    supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
+                    supabaseStatus = 'Ready';
+                    console.log('Supabase status:', supabaseStatus);
+                    fetchTestimonials();
+                } else {
+                    supabaseStatus = 'Error: Supabase not found';
+                    console.error('Supabase library not found after loading script.');
+                }
+            };
+
+            // Contact Form Elements
+            const contactBtn = document.getElementById('contact-btn');
+            const heroContactBtn = document.getElementById('hero-contact-btn');
+            const contactModal = document.getElementById('contact-modal');
+            const closeContactModalBtn = document.getElementById('close-contact-modal-btn');
+            const cancelContactBtn = document.getElementById('cancel-contact-btn');
+            const contactForm = document.getElementById('contact-form');
+            const submitContactBtn = document.getElementById('submit-contact-btn');
+            const contactSubmissionMessageDiv = document.getElementById('contact-submission-message');
+
+            // Testimonial Form Elements
+            const addTestimonialBtn = document.getElementById('add-testimonial-btn');
+            const testimonialModal = document.getElementById('testimonial-modal');
+            const closeTestimonialModalBtn = document.getElementById('close-testimonial-modal-btn');
+            const cancelTestimonialBtn = document.getElementById('cancel-testimonial-btn');
+            const testimonialForm = document.getElementById('testimonial-form');
+            const submitTestimonialBtn = document.getElementById('submit-testimonial-btn');
+            const testimonialSubmissionMessageDiv = document.getElementById('testimonial-submission-message');
+
+            const showModal = (modal) => {
+                modal.classList.remove('hidden');
+                const form = modal.querySelector('form');
+                const messageDiv = modal.querySelector('div[id$="-submission-message"]');
+                if (form) form.classList.remove('hidden');
+                if (messageDiv) messageDiv.classList.add('hidden');
+            };
+
+            const hideModal = (modal) => {
+                modal.classList.add('hidden');
+            };
+
+            // Contact Form Event Listeners
+            contactBtn.addEventListener('click', () => showModal(contactModal));
+            heroContactBtn.addEventListener('click', () => showModal(contactModal));
+            closeContactModalBtn.addEventListener('click', () => hideModal(contactModal));
+            cancelContactBtn.addEventListener('click', () => hideModal(contactModal));
+
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                if (!supabaseClient) {
+                    contactSubmissionMessageDiv.textContent = 'Supabase is not ready yet. Please try again.';
+                    contactSubmissionMessageDiv.classList.remove('hidden');
+                    return;
+                }
+                
+                const formData = {
+                    name: e.target.name.value,
+                    email: e.target.email.value,
+                    message: e.target.message.value
+                };
+
+                submitContactBtn.textContent = 'Sending...';
+                submitContactBtn.disabled = true;
+
+                try {
+                    const { error } = await supabaseClient
+                        .from('contact_messages')
+                        .insert([formData]);
+
+                    if (error) {
+                        throw error;
+                    }
+
+                    contactSubmissionMessageDiv.textContent = 'Thank you for your message! We will be in touch shortly.';
+                    contactSubmissionMessageDiv.classList.remove('hidden');
+                    contactForm.reset();
+                    contactForm.classList.add('hidden');
+
+                } catch (error) {
+                    console.error('Error submitting contact form:', error.message);
+                    contactSubmissionMessageDiv.textContent = 'Failed to send message. Please try again later.';
+                    contactSubmissionMessageDiv.classList.remove('hidden');
+                } finally {
+                    submitContactBtn.textContent = 'Send Message';
+                    submitContactBtn.disabled = false;
+                }
+            });
+
+            // Testimonial Form Event Listeners
+            addTestimonialBtn.addEventListener('click', () => showModal(testimonialModal));
+            closeTestimonialModalBtn.addEventListener('click', () => hideModal(testimonialModal));
+            cancelTestimonialBtn.addEventListener('click', () => hideModal(testimonialModal));
+
+            testimonialForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                if (!supabaseClient) {
+                    testimonialSubmissionMessageDiv.textContent = 'Supabase is not ready yet. Please try again.';
+                    testimonialSubmissionMessageDiv.classList.remove('hidden');
+                    return;
+                }
+
+                const formData = {
+                    quote: e.target.quote.value,
+                    author: e.target.author.value
+                };
+
+                submitTestimonialBtn.textContent = 'Submitting...';
+                submitTestimonialBtn.disabled = true;
+
+                try {
+                    const { error } = await supabaseClient
+                        .from('testimonials')
+                        .insert([formData]);
+
+                    if (error) {
+                        throw error;
+                    }
+
+                    testimonialSubmissionMessageDiv.textContent = 'Thank you! Your testimonial has been submitted.';
+                    testimonialSubmissionMessageDiv.classList.remove('hidden');
+                    testimonialForm.reset();
+                    testimonialForm.classList.add('hidden');
+                    fetchTestimonials(); // Refresh the list
+                } catch (error) {
+                    console.error('Error submitting testimonial:', error.message);
+                    if (error.message.includes('violates row-level security policy')) {
+                         testimonialSubmissionMessageDiv.textContent = 'Submission failed due to a security policy error. Please ensure your Supabase "testimonials" table has an RLS policy that allows inserts from anon users.';
+                    } else {
+                        testimonialSubmissionMessageDiv.textContent = 'Failed to submit testimonial. Please try again.';
+                    }
+                    testimonialSubmissionMessageDiv.classList.remove('hidden');
+                } finally {
+                    submitTestimonialBtn.textContent = 'Submit Testimonial';
+                    submitTestimonialBtn.disabled = false;
+                }
+            });
+
+            const fetchTestimonials = async () => {
+                const testimonialsContainer = document.getElementById('testimonials-container');
+                testimonialsContainer.innerHTML = '<p class="md:col-span-3 text-center text-gray-500">Loading testimonials...</p>';
+
+                try {
+                    if (!supabaseClient) {
+                        setTimeout(fetchTestimonials, 500);
+                        return;
+                    }
+                    const { data, error } = await supabaseClient
+                        .from('testimonials')
+                        .select('*');
+
+                    if (error) {
+                        console.error('Supabase fetch error:', error);
+                        // Check for specific error codes or messages for better user feedback
+                        if (error.message && error.message.includes('Row-level security policy')) {
+                            throw new Error('Failed to load testimonials due to a security policy. Please check your Supabase RLS policies for the testimonials table.');
+                        }
+                        throw error;
+                    }
+
+                    if (data.length > 0) {
+                        testimonialsContainer.innerHTML = '';
+                        data.forEach(testimonial => {
+                            const testimonialCard = document.createElement('div');
+                            testimonialCard.className = 'bg-white p-6 rounded-3xl shadow-lg flex flex-col items-center text-center transition-colors duration-300';
+                            testimonialCard.innerHTML = `
+                                <p class="italic text-base text-gray-600 mb-4">"${testimonial.quote}"</p>
+                                <p class="font-semibold text-[#A5A58D]">- ${testimonial.author}</p>
+                            `;
+                            testimonialsContainer.appendChild(testimonialCard);
+                        });
+                    } else {
+                        testimonialsContainer.innerHTML = '<p class="md:col-span-3 text-center text-gray-500">No testimonials to display yet.</p>';
+                    }
+                } catch (error) {
+                    console.error('Error fetching testimonials:', error.message);
+                    testimonialsContainer.innerHTML = `<p class="md:col-span-3 text-center text-red-500">Failed to load testimonials: ${error.message}</p>`;
+                }
+            };
+        });
+    </script>
+
 </body>
-
 </html>
