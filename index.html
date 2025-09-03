@@ -7,14 +7,56 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+      :root {
+          --bg: #F2EFEA;
+          --text: #374151;
+          --primary: #6B7051;
+          --accent: #A5A58D;
+          --card-bg: #FFFFFF;
+          --hero-opacity: 0.6;
+      }
+
+      .dark {
+          --bg: #1A1A1A;
+          --text: #E5E7EB;
+          --primary: #A5A58D;
+          --accent: #B2A27A;
+          --card-bg: #2B2B2B;
+          --hero-opacity: 0.3;
+      }
+      
+      body {
+          background-color: var(--bg);
+          color: var(--text);
+          transition: background-color 0.3s ease, color 0.3s ease;
+      }
       .font-inter {
           font-family: 'Inter', sans-serif;
+      }
+      .bg-primary { background-color: var(--primary); }
+      .text-primary { color: var(--primary); }
+      .hover-primary:hover { background-color: var(--primary); }
+      .bg-accent { background-color: var(--accent); }
+      .text-accent { color: var(--accent); }
+      .hover-accent:hover { background-color: var(--accent); }
+      .bg-card { background-color: var(--card-bg); }
+      .text-card { color: var(--card-bg); }
+      .transition-colors-theme {
+          transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      }
+      .hero-overlay {
+          position: absolute;
+          inset: 0;
+          background-color: var(--card-bg);
+          opacity: var(--hero-opacity);
+          transition: opacity 0.3s ease;
       }
       .skip-link {
           position: absolute;
           top: -40px;
           left: 0;
-          background: #6B7051;
+          background: var(--primary);
           color: white;
           padding: 8px;
           z-index: 1000;
@@ -26,18 +68,23 @@
       }
     </style>
 </head>
-<body class="bg-[#F2EFEA] text-gray-800 font-inter transition-colors duration-300">
+<body class="font-inter transition-colors duration-300">
     <!-- Skip to Main Content Link -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Header with Navigation -->
     <header class="p-6 relative z-10">
-        <nav class="flex justify-end items-center max-w-5xl mx-auto">
+        <nav class="flex justify-between items-center max-w-5xl mx-auto">
+            <button id="theme-toggle" class="p-2 rounded-full transition-transform duration-200 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent">
+                <svg id="theme-icon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+            </button>
             <div class="flex items-center space-x-4">
-                <a href="#about" class="text-gray-600 hover:text-[#A5A58D] transition-colors">About</a>
-                <a href="#services" class="text-gray-600 hover:text-[#A5A58D] transition-colors">Services</a>
-                <a href="#testimonials" class="text-gray-600 hover:text-[#A5A58D] transition-colors">Testimonials</a>
-                <button id="contact-btn" class="px-4 py-2 bg-[#A5A58D] text-white rounded-lg hover:bg-[#6B7051] transition-colors">
+                <a href="#about" class="text-text hover:text-accent transition-colors">About</a>
+                <a href="#services" class="text-text hover:text-accent transition-colors">Services</a>
+                <a href="#testimonials" class="text-text hover:text-accent transition-colors">Testimonials</a>
+                <button id="contact-btn" class="px-4 py-2 bg-accent text-white rounded-lg hover-primary transition-colors-theme">
                     Contact
                 </button>
             </div>
@@ -49,26 +96,26 @@
         <section class="relative text-center py-16 px-4">
             <div class="absolute inset-0 z-0">
                 <img src="IMG_9988.JPG" alt="A serene landscape with a green field, a path, and mountains in the distance." class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-white opacity-60"></div>
+                <div class="hero-overlay"></div>
             </div>
             <div class="relative z-10">
-                <h2 class="text-5xl md:text-6xl font-extrabold text-[#6B7051] leading-tight mb-4">
+                <h2 class="text-5xl md:text-6xl font-extrabold text-primary leading-tight mb-4">
                     Send Me On My Way
                 </h2>
-                <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                <p class="text-xl text-text mb-8 max-w-2xl mx-auto">
                     Providing compassionate and holistic support for the dying and their families.
                 </p>
-                <button id="hero-contact-btn" class="px-8 py-3 bg-[#A5A58D] text-white rounded-lg shadow-lg hover:bg-[#6B7051] transition-transform duration-200 transform hover:scale-105">
+                <button id="hero-contact-btn" class="px-8 py-3 bg-accent text-white rounded-lg shadow-lg hover-primary transition-transform duration-200 transform hover:scale-105">
                     Begin Your Journey
                 </button>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="py-16 px-4 bg-white rounded-3xl shadow-lg my-12 transition-colors duration-300">
-            <h3 class="text-4xl font-bold text-center text-[#6B7051] mb-8">About Jennifer Thomas</h3>
+        <section id="about" class="py-16 px-4 bg-card rounded-3xl shadow-lg my-12 transition-colors-theme">
+            <h3 class="text-4xl font-bold text-center text-primary mb-8">About Jennifer Thomas</h3>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start text-lg text-gray-700 leading-relaxed text-center md:text-left">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start text-lg text-text leading-relaxed text-center md:text-left">
                 <div class="flex justify-center md:justify-end">
                     <img src="IMG_9971.JPG" alt="A side profile of Jennifer Thomas, the death doula, smiling gently." class="w-full max-w-xs h-96 object-cover rounded-xl shadow-md" />
                 </div>
@@ -83,8 +130,8 @@
             </div>
             
             <div class="mt-12 text-center">
-                <h4 class="font-semibold text-lg text-[#6B7051] mb-2">My Certifications Include:</h4>
-                <ul class="list-disc list-inside text-gray-700 space-y-1 w-fit mx-auto">
+                <h4 class="font-semibold text-lg text-primary mb-2">My Certifications Include:</h4>
+                <ul class="list-disc list-inside text-text space-y-1 w-fit mx-auto">
                     <li>International End of Life Doula Association</li>
                     <li>End of Life Care Specialist/Death Doula</li>
                     <li>University of Georgia, Criminal Justice</li>
@@ -97,14 +144,14 @@
 
         <!-- Services Section -->
         <section id="services" class="py-16 px-4">
-            <h3 class="text-4xl font-bold text-center text-[#6B7051] mb-12">My Services</h3>
+            <h3 class="text-4xl font-bold text-center text-primary mb-12">My Services</h3>
             <div class="space-y-12 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
                 <!-- Service 1 -->
-                <div class="bg-white p-8 rounded-3xl shadow-lg flex flex-col items-center text-center">
+                <div class="bg-card p-8 rounded-3xl shadow-lg flex flex-col items-center text-center transition-colors-theme">
                     <div>
-                        <h4 class="text-2xl font-semibold text-[#A5A58D] mb-4">Mindful Planning</h4>
-                        <p class="text-gray-700">Thoughtful guidance for crafting a meaningful farewell, ensuring your wishes are honored with clarity and peace.</p>
-                        <ul class="list-disc list-inside text-gray-700 mt-4 space-y-1 text-left">
+                        <h4 class="text-2xl font-semibold text-accent mb-4">Mindful Planning</h4>
+                        <p class="text-text">Thoughtful guidance for crafting a meaningful farewell, ensuring your wishes are honored with clarity and peace.</p>
+                        <ul class="list-disc list-inside text-text mt-4 space-y-1 text-left">
                             <li>Personalized consultations</li>
                             <li>Advance directive assistance</li>
                             <li>Legacy project development</li>
@@ -115,14 +162,14 @@
                     </div>
                 </div>
                 <!-- Service 2 -->
-                <div class="bg-white p-8 rounded-3xl shadow-lg flex flex-col items-center text-center">
+                <div class="bg-card p-8 rounded-3xl shadow-lg flex flex-col items-center text-center transition-colors-theme">
                     <div>
                         <img src="IMG_9970.JPG" alt="A caring, compassionate person holding the hand of a comforting family member." class="rounded-xl w-full object-cover shadow-md mb-6" />
                     </div>
                     <div>
-                        <h4 class="text-2xl font-semibold text-[#A5A58D] mb-4">Compassionate Presence</h4>
-                        <p class="text-gray-700">Offering unwavering support and a serene presence during the active dying phase.</p>
-                        <ul class="list-disc list-inside text-gray-700 mt-4 space-y-1 text-left">
+                        <h4 class="text-2xl font-semibold text-accent mb-4">Compassionate Presence</h4>
+                        <p class="text-text">Offering unwavering support and a serene presence during the active dying phase.</p>
+                        <ul class="list-disc list-inside text-text mt-4 space-y-1 text-left">
                             <li>Emotional & spiritual support</li>
                             <li>Comfort measures facilitation</li>
                             <li>Family communication liaison</li>
@@ -130,11 +177,11 @@
                     </div>
                 </div>
                 <!-- Service 3 -->
-                <div class="bg-white p-8 rounded-3xl shadow-lg flex flex-col items-center text-center">
+                <div class="bg-card p-8 rounded-3xl shadow-lg flex flex-col items-center text-center transition-colors-theme">
                     <div>
-                        <h4 class="text-2xl font-semibold text-[#A5A58D] mb-4">Journey Through Grief</h4>
-                        <p class="text-gray-700">Providing sensitive post-death support to help navigate the complex landscape of loss.</p>
-                        <ul class="list-disc list-inside text-gray-700 mt-4 space-y-1 text-left">
+                        <h4 class="text-2xl font-semibold text-accent mb-4">Journey Through Grief</h4>
+                        <p class="text-text">Providing sensitive post-death support to help navigate the complex landscape of loss.</p>
+                        <ul class="list-disc list-inside text-text mt-4 space-y-1 text-left">
                             <li>Individual & group sessions</li>
                             <li>Memorial & ritual creation</li>
                             <li>Resource connection</li>
@@ -145,14 +192,14 @@
                     </div>
                 </div>
                 <!-- Service 4 -->
-                <div class="bg-white p-8 rounded-3xl shadow-lg flex flex-col items-center text-center">
+                <div class="bg-card p-8 rounded-3xl shadow-lg flex flex-col items-center text-center transition-colors-theme">
                     <div>
                         <img src="womanholdingbook.jpg" alt="A woman in a cozy sweater holding a book, with a focused and serene expression." class="rounded-xl w-full object-cover shadow-md mb-6" />
                     </div>
                     <div>
-                        <h4 class="text-2xl font-semibold text-[#A5A58D] mb-4">Holistic Healing</h4>
-                        <p class="text-gray-700">Gentle therapies that promote comfort, peace, and spiritual well-being during the end-of-life journey.</p>
-                        <ul class="list-disc list-inside text-gray-700 mt-4 space-y-1 text-left">
+                        <h4 class="text-2xl font-semibold text-accent mb-4">Holistic Healing</h4>
+                        <p class="text-text">Gentle therapies that promote comfort, peace, and spiritual well-being during the end-of-life journey.</p>
+                        <ul class="list-disc list-inside text-text mt-4 space-y-1 text-left">
                             <li>Aroma Touch Massage</li>
                             <li>Distance Reiki Sessions</li>
                             <li>Raindrop Therapy</li>
@@ -164,21 +211,21 @@
 
         <!-- Testimonials Section -->
         <section id="testimonials" class="py-16 px-4">
-            <h3 class="text-4xl font-bold text-center text-[#6B7051] mb-8">Kind Words</h3>
+            <h3 class="text-4xl font-bold text-center text-primary mb-8">Kind Words</h3>
             <div class="flex justify-center mb-8">
-                <button id="add-testimonial-btn" class="px-6 py-2 bg-[#A5A58D] text-white rounded-lg shadow-lg hover:bg-[#6B7051] transition-transform duration-200 transform hover:scale-105">
+                <button id="add-testimonial-btn" class="px-6 py-2 bg-accent text-white rounded-lg shadow-lg hover-primary transition-transform duration-200 transform hover:scale-105">
                     Add Your Testimonial
                 </button>
             </div>
             <div id="testimonials-container" class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                 <!-- Testimonials will be loaded here from Supabase -->
-                <p class="md:col-span-3 text-center text-gray-500">Loading testimonials...</p>
+                <p class="md:col-span-3 text-center text-text">Loading testimonials...</p>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-[#6B7051] text-white py-8">
+    <footer class="bg-primary text-white py-8 transition-colors-theme">
         <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
             <div class="mb-4 md:mb-0">
                 <p>&copy; 2023 Send Me On My Way. All Rights Reserved.</p>
@@ -210,30 +257,30 @@
 
     <!-- Contact Form Modal -->
     <div id="contact-modal" class="fixed inset-0 bg-gray-950 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden" aria-modal="true">
-        <div class="bg-white rounded-xl shadow-2xl p-8 max-w-lg w-full transition-colors duration-300">
+        <div class="bg-card rounded-xl shadow-2xl p-8 max-w-lg w-full transition-colors-theme">
             <div class="flex justify-between items-center mb-6">
-                <h4 class="text-2xl font-bold text-[#6B7051]">Contact Us</h4>
-                <button id="close-contact-modal-btn" class="text-gray-500 hover:text-gray-800">&times;</button>
+                <h4 class="text-2xl font-bold text-primary">Contact Us</h4>
+                <button id="close-contact-modal-btn" class="text-gray-500 hover:text-gray-800 dark:hover:text-gray-300">&times;</button>
             </div>
             <div id="contact-submission-message" class="text-center text-lg font-semibold my-6 hidden"></div>
             <form id="contact-form" class="space-y-4">
                 <div>
-                    <label for="name" class="block text-gray-700 font-semibold mb-1">Name</label>
-                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A5A58D]" required>
+                    <label for="name" class="block text-text font-semibold mb-1">Name</label>
+                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 bg-gray-100 dark:bg-gray-700 text-text rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required>
                 </div>
                 <div>
-                    <label for="email" class="block text-gray-700 font-semibold mb-1">Email</label>
-                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A5A58D]" required>
+                    <label for="email" class="block text-text font-semibold mb-1">Email</label>
+                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 bg-gray-100 dark:bg-gray-700 text-text rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required>
                 </div>
                 <div>
-                    <label for="message" class="block text-gray-700 font-semibold mb-1">Message</label>
-                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A5A58D]" required></textarea>
+                    <label for="message" class="block text-text font-semibold mb-1">Message</label>
+                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 bg-gray-100 dark:bg-gray-700 text-text rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required></textarea>
                 </div>
                 <div class="flex justify-end space-x-4">
-                    <button type="button" id="cancel-contact-btn" class="px-6 py-2 rounded-lg text-gray-600 hover:bg-gray-200 transition-colors">
+                    <button type="button" id="cancel-contact-btn" class="px-6 py-2 rounded-lg text-text hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors-theme">
                         Cancel
                     </button>
-                    <button type="submit" id="submit-contact-btn" class="px-6 py-2 bg-[#A5A58D] text-white rounded-lg hover:bg-[#6B7051] transition-colors">
+                    <button type="submit" id="submit-contact-btn" class="px-6 py-2 bg-accent text-white rounded-lg hover-primary transition-colors-theme">
                         Send Message
                     </button>
                 </div>
@@ -243,26 +290,26 @@
 
     <!-- Testimonial Form Modal -->
     <div id="testimonial-modal" class="fixed inset-0 bg-gray-950 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden" aria-modal="true">
-        <div class="bg-white rounded-xl shadow-2xl p-8 max-w-lg w-full transition-colors duration-300">
+        <div class="bg-card rounded-xl shadow-2xl p-8 max-w-lg w-full transition-colors-theme">
             <div class="flex justify-between items-center mb-6">
-                <h4 class="text-2xl font-bold text-[#6B7051]">Add Your Testimonial</h4>
-                <button id="close-testimonial-modal-btn" class="text-gray-500 hover:text-gray-800">&times;</button>
+                <h4 class="text-2xl font-bold text-primary">Add Your Testimonial</h4>
+                <button id="close-testimonial-modal-btn" class="text-gray-500 hover:text-gray-800 dark:hover:text-gray-300">&times;</button>
             </div>
             <div id="testimonial-submission-message" class="text-center text-lg font-semibold my-6 hidden"></div>
             <form id="testimonial-form" class="space-y-4">
                 <div>
-                    <label for="testimonial-quote" class="block text-gray-700 font-semibold mb-1">Your Testimonial</label>
-                    <textarea id="testimonial-quote" name="quote" rows="4" class="w-full px-4 py-2 border border-gray-300 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A5A58D]" required></textarea>
+                    <label for="testimonial-quote" class="block text-text font-semibold mb-1">Your Testimonial</label>
+                    <textarea id="testimonial-quote" name="quote" rows="4" class="w-full px-4 py-2 border border-gray-300 bg-gray-100 dark:bg-gray-700 text-text rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required></textarea>
                 </div>
                 <div>
-                    <label for="testimonial-author" class="block text-gray-700 font-semibold mb-1">Your Name</label>
-                    <input type="text" id="testimonial-author" name="author" class="w-full px-4 py-2 border border-gray-300 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A5A58D]" required>
+                    <label for="testimonial-author" class="block text-text font-semibold mb-1">Your Name</label>
+                    <input type="text" id="testimonial-author" name="author" class="w-full px-4 py-2 border border-gray-300 bg-gray-100 dark:bg-gray-700 text-text rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required>
                 </div>
                 <div class="flex justify-end space-x-4">
-                    <button type="button" id="cancel-testimonial-btn" class="px-6 py-2 rounded-lg text-gray-600 hover:bg-gray-200 transition-colors">
+                    <button type="button" id="cancel-testimonial-btn" class="px-6 py-2 rounded-lg text-text hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors-theme">
                         Cancel
                     </button>
-                    <button type="submit" id="submit-testimonial-btn" class="px-6 py-2 bg-[#A5A58D] text-white rounded-lg hover:bg-[#6B7051] transition-colors">
+                    <button type="submit" id="submit-testimonial-btn" class="px-6 py-2 bg-accent text-white rounded-lg hover-primary transition-colors-theme">
                         Submit Testimonial
                     </button>
                 </div>
@@ -271,7 +318,7 @@
     </div>
 
     <!-- Scroll to Top Button -->
-    <button id="scrollToTopBtn" aria-label="Scroll to top" class="fixed bottom-8 right-8 bg-[#6B7051] text-white p-4 rounded-full shadow-lg transition-transform duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A5A58D] z-50 hidden">
+    <button id="scrollToTopBtn" aria-label="Scroll to top" class="fixed bottom-8 right-8 bg-primary text-white p-4 rounded-full shadow-lg transition-transform duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent z-50 hidden">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
         </svg>
@@ -301,7 +348,49 @@
                     }
                 };
             };
+            
+            // Theme toggle functionality
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
+            const body = document.body;
 
+            const setLightMode = () => {
+                body.classList.remove('dark');
+                themeIcon.innerHTML = `<path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>`;
+            };
+
+            const setDarkMode = () => {
+                body.classList.add('dark');
+                themeIcon.innerHTML = `<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>`;
+            };
+
+            const toggleTheme = () => {
+                const isDark = body.classList.contains('dark');
+                if (isDark) {
+                    setLightMode();
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    setDarkMode();
+                    localStorage.setItem('theme', 'dark');
+                }
+            };
+            
+            // Set initial theme based on localStorage or system preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                if (savedTheme === 'dark') {
+                    setDarkMode();
+                } else {
+                    setLightMode();
+                }
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                setDarkMode();
+            } else {
+                setLightMode();
+            }
+
+            themeToggleBtn.addEventListener('click', toggleTheme);
+            
             // Modal logic
             const contactModal = document.getElementById('contact-modal');
             const testimonialModal = document.getElementById('testimonial-modal');
@@ -434,7 +523,7 @@
             // Testimonial fetching and rendering
             const fetchTestimonials = async () => {
                 const testimonialsContainer = document.getElementById('testimonials-container');
-                testimonialsContainer.innerHTML = '<p class="md:col-span-3 text-center text-gray-500">Loading testimonials...</p>';
+                testimonialsContainer.innerHTML = '<p class="md:col-span-3 text-center text-text">Loading testimonials...</p>';
 
                 if (!supabaseClient) {
                     setTimeout(fetchTestimonials, 500);
@@ -449,15 +538,15 @@
                         testimonialsContainer.innerHTML = '';
                         data.forEach(testimonial => {
                             const card = document.createElement('div');
-                            card.className = 'bg-white p-6 rounded-3xl shadow-lg flex flex-col items-center text-center transition-colors duration-300';
+                            card.className = 'bg-card p-6 rounded-3xl shadow-lg flex flex-col items-center text-center transition-colors-theme';
                             card.innerHTML = `
-                                <p class="italic text-base text-gray-600 mb-4">"${testimonial.quote}"</p>
-                                <p class="font-semibold text-[#A5A58D]">- ${testimonial.author}</p>
+                                <p class="italic text-base text-text mb-4">"${testimonial.quote}"</p>
+                                <p class="font-semibold text-accent">- ${testimonial.author}</p>
                             `;
                             testimonialsContainer.appendChild(card);
                         });
                     } else {
-                        testimonialsContainer.innerHTML = '<p class="md:col-span-3 text-center text-gray-500">No testimonials to display yet.</p>';
+                        testimonialsContainer.innerHTML = '<p class="md:col-span-3 text-center text-text">No testimonials to display yet.</p>';
                     }
                 } catch (error) {
                     console.error('Error fetching testimonials:', error.message);
