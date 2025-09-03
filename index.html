@@ -260,6 +260,13 @@
         </div>
     </div>
 
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" class="fixed bottom-8 right-8 bg-[#6B7051] text-white p-4 rounded-full shadow-lg transition-transform duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A5A58D] z-50 hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
@@ -305,6 +312,10 @@
             const testimonialForm = document.getElementById('testimonial-form');
             const submitTestimonialBtn = document.getElementById('submit-testimonial-btn');
             const testimonialSubmissionMessageDiv = document.getElementById('testimonial-submission-message');
+
+            // Scroll to Top Button Elements
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            const SCROLL_THRESHOLD = 300;
 
             const showModal = (modal) => {
                 modal.classList.remove('hidden');
@@ -457,6 +468,22 @@
                     testimonialsContainer.innerHTML = `<p class="md:col-span-3 text-center text-red-500">Failed to load testimonials: ${error.message}</p>`;
                 }
             };
+            
+            // Scroll to Top Button Logic
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > SCROLL_THRESHOLD) {
+                    scrollToTopBtn.classList.remove('hidden');
+                } else {
+                    scrollToTopBtn.classList.add('hidden');
+                }
+            });
+
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
         });
     </script>
 
