@@ -10,9 +10,25 @@
       .font-inter {
           font-family: 'Inter', sans-serif;
       }
+      .skip-link {
+          position: absolute;
+          top: -40px;
+          left: 0;
+          background: #6B7051;
+          color: white;
+          padding: 8px;
+          z-index: 1000;
+          transition: top 0.3s;
+          border-radius: 0 0 8px 8px;
+      }
+      .skip-link:focus {
+          top: 0;
+      }
     </style>
 </head>
 <body class="bg-[#F2EFEA] text-gray-800 font-inter transition-colors duration-300">
+    <!-- Skip to Main Content Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Header with Navigation -->
     <header class="p-6 relative z-10">
@@ -28,11 +44,11 @@
         </nav>
     </header>
 
-    <main class="max-w-5xl mx-auto p-6 relative">
-        <!-- Hero Section with Background Image - Updated with real image -->
+    <main id="main-content" class="max-w-5xl mx-auto p-6 relative">
+        <!-- Hero Section -->
         <section class="relative text-center py-16 px-4">
             <div class="absolute inset-0 z-0">
-                <img src="IMG_9988.JPG" alt="A peaceful field with mountains in the background" class="w-full h-full object-cover">
+                <img src="IMG_9988.JPG" alt="A serene landscape with a green field, a path, and mountains in the distance." class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-white opacity-60"></div>
             </div>
             <div class="relative z-10">
@@ -48,17 +64,14 @@
             </div>
         </section>
 
-        <!-- About Section with Image and Text Top-Alignment and Centered Certifications -->
+        <!-- About Section -->
         <section id="about" class="py-16 px-4 bg-white rounded-3xl shadow-lg my-12 transition-colors duration-300">
             <h3 class="text-4xl font-bold text-center text-[#6B7051] mb-8">About Jennifer Thomas</h3>
             
-            <!-- Main grid for image and text -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start text-lg text-gray-700 leading-relaxed text-center md:text-left">
-                <!-- Image column -->
                 <div class="flex justify-center md:justify-end">
-                    <img src="IMG_9971.JPG" alt="Quote from Jennifer Thomas" class="w-full max-w-xs h-96 object-cover rounded-xl shadow-md" />
+                    <img src="IMG_9971.JPG" alt="A side profile of Jennifer Thomas, the death doula, smiling gently." class="w-full max-w-xs h-96 object-cover rounded-xl shadow-md" />
                 </div>
-                <!-- Text column -->
                 <div>
                     <p class="mt-4 md:mt-0">
                         Hello, I'm Jennifer Thomas, and I am a certified Death Doula dedicated to providing comfort, clarity, and dignity during the final stages of life. I work closely with families to understand their needs, values, and beliefs, providing holistic support that encompasses emotional, spiritual, and practical guidance.
@@ -69,7 +82,6 @@
                 </div>
             </div>
             
-            <!-- Certifications Section below the main grid -->
             <div class="mt-12 text-center">
                 <h4 class="font-semibold text-lg text-[#6B7051] mb-2">My Certifications Include:</h4>
                 <ul class="list-disc list-inside text-gray-700 space-y-1 w-fit mx-auto">
@@ -83,7 +95,7 @@
             </div>
         </section>
 
-        <!-- Services Section with alternating image and text layout -->
+        <!-- Services Section -->
         <section id="services" class="py-16 px-4">
             <h3 class="text-4xl font-bold text-center text-[#6B7051] mb-12">My Services</h3>
             <div class="space-y-12 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
@@ -99,13 +111,13 @@
                         </ul>
                     </div>
                     <div>
-                        <img src="IMG_9967.png" alt="Mindful Planning" class="rounded-xl w-full h-64 object-cover shadow-md mt-6" />
+                        <img src="IMG_9967.png" alt="A person writing in a notebook, with gentle hands helping them." class="rounded-xl w-full h-64 object-cover shadow-md mt-6" />
                     </div>
                 </div>
-                <!-- Service 2 - Updated with real image -->
+                <!-- Service 2 -->
                 <div class="bg-white p-8 rounded-3xl shadow-lg flex flex-col items-center text-center">
                     <div>
-                        <img src="IMG_9970.JPG" alt="A person comforting another person" class="rounded-xl w-full object-cover shadow-md mb-6" />
+                        <img src="IMG_9970.JPG" alt="A caring, compassionate person holding the hand of a comforting family member." class="rounded-xl w-full object-cover shadow-md mb-6" />
                     </div>
                     <div>
                         <h4 class="text-2xl font-semibold text-[#A5A58D] mb-4">Compassionate Presence</h4>
@@ -129,13 +141,13 @@
                         </ul>
                     </div>
                     <div>
-                        <img src="IMG_9966.JPG" alt="Journey Through Grief" class="rounded-xl w-full object-cover shadow-md mt-6" />
+                        <img src="IMG_9966.JPG" alt="A person looking out a window on a rainy day, in a moment of quiet reflection." class="rounded-xl w-full object-cover shadow-md mt-6" />
                     </div>
                 </div>
-                <!-- Service 4 - Updated with real image -->
+                <!-- Service 4 -->
                 <div class="bg-white p-8 rounded-3xl shadow-lg flex flex-col items-center text-center">
                     <div>
-                        <img src="womanholdingbook.jpg" alt="Essential oils in a wooden bowl with a sprig of a plant" class="rounded-xl w-full object-cover shadow-md mb-6" />
+                        <img src="womanholdingbook.jpg" alt="A woman in a cozy sweater holding a book, with a focused and serene expression." class="rounded-xl w-full object-cover shadow-md mb-6" />
                     </div>
                     <div>
                         <h4 class="text-2xl font-semibold text-[#A5A58D] mb-4">Holistic Healing</h4>
@@ -172,11 +184,9 @@
                 <p>&copy; 2023 Send Me On My Way. All Rights Reserved.</p>
                 <p>Designed by AR</p>
             </div>
-            
             <div class="flex flex-col items-center md:items-start mb-4 md:mb-0">
                 <p class="italic text-sm max-w-lg mb-2">"Death must be so beautiful. To lie in the soft brown earth, with the grasses waving above one's head, and listen to silence. To have no yesterday, and no tomorrow. To forget time, to forgive life, to be at peace." - Oscar Wilde</p>
             </div>
-            
             <div class="flex space-x-4 items-center">
                 <!-- Instagram Icon -->
                 <a href="https://www.instagram.com/sendmeonmywaydeathdoula/?igsh=MTUxYTNpd2E1dnkybQ%3D%3D#" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors">
@@ -199,7 +209,7 @@
     </footer>
 
     <!-- Contact Form Modal -->
-    <div id="contact-modal" class="fixed inset-0 bg-gray-950 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
+    <div id="contact-modal" class="fixed inset-0 bg-gray-950 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden" aria-modal="true">
         <div class="bg-white rounded-xl shadow-2xl p-8 max-w-lg w-full transition-colors duration-300">
             <div class="flex justify-between items-center mb-6">
                 <h4 class="text-2xl font-bold text-[#6B7051]">Contact Us</h4>
@@ -232,7 +242,7 @@
     </div>
 
     <!-- Testimonial Form Modal -->
-    <div id="testimonial-modal" class="fixed inset-0 bg-gray-950 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
+    <div id="testimonial-modal" class="fixed inset-0 bg-gray-950 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden" aria-modal="true">
         <div class="bg-white rounded-xl shadow-2xl p-8 max-w-lg w-full transition-colors duration-300">
             <div class="flex justify-between items-center mb-6">
                 <h4 class="text-2xl font-bold text-[#6B7051]">Add Your Testimonial</h4>
@@ -261,7 +271,7 @@
     </div>
 
     <!-- Scroll to Top Button -->
-    <button id="scrollToTopBtn" class="fixed bottom-8 right-8 bg-[#6B7051] text-white p-4 rounded-full shadow-lg transition-transform duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A5A58D] z-50 hidden">
+    <button id="scrollToTopBtn" aria-label="Scroll to top" class="fixed bottom-8 right-8 bg-[#6B7051] text-white p-4 rounded-full shadow-lg transition-transform duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A5A58D] z-50 hidden">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
         </svg>
@@ -270,55 +280,61 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
-            // IMPORTANT: The URL and Key have been replaced with the ones you provided.
+            // Supabase configuration and initialization
             const supabaseUrl = 'https://zmjrlezcjwolzvvzglvi.supabase.co';
             const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InptanJsZXpjandvbHp2dnpnbHZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY5MTQ4NTQsImV4cCI6MjA3MjQ5MDg1NH0.JRcNdAUC4ZLB7bCLwXEXeyr_sV2nQ7k_XY11TV_AooU';
 
-            // Load Supabase from CDN
-            const script = document.createElement('script');
-            script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
-            document.body.appendChild(script);
-
             let supabaseClient = null;
-            let supabaseStatus = 'Loading...';
+            
+            const loadSupabase = () => {
+                const script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+                document.body.appendChild(script);
 
-            script.onload = () => {
-                if (window.supabase && window.supabase.createClient) {
-                    supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
-                    supabaseStatus = 'Ready';
-                    console.log('Supabase status:', supabaseStatus);
-                    fetchTestimonials();
-                } else {
-                    supabaseStatus = 'Error: Supabase not found';
-                    console.error('Supabase library not found after loading script.');
-                }
+                script.onload = () => {
+                    if (window.supabase && window.supabase.createClient) {
+                        supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
+                        console.log('Supabase: Ready');
+                        fetchTestimonials();
+                    } else {
+                        console.error('Supabase: Error - library not found after loading script.');
+                    }
+                };
             };
 
-            // Contact Form Elements
-            const contactBtn = document.getElementById('contact-btn');
-            const heroContactBtn = document.getElementById('hero-contact-btn');
+            // Modal logic
             const contactModal = document.getElementById('contact-modal');
-            const closeContactModalBtn = document.getElementById('close-contact-modal-btn');
-            const cancelContactBtn = document.getElementById('cancel-contact-btn');
-            const contactForm = document.getElementById('contact-form');
-            const submitContactBtn = document.getElementById('submit-contact-btn');
-            const contactSubmissionMessageDiv = document.getElementById('contact-submission-message');
-
-            // Testimonial Form Elements
-            const addTestimonialBtn = document.getElementById('add-testimonial-btn');
             const testimonialModal = document.getElementById('testimonial-modal');
-            const closeTestimonialModalBtn = document.getElementById('close-testimonial-modal-btn');
-            const cancelTestimonialBtn = document.getElementById('cancel-testimonial-btn');
-            const testimonialForm = document.getElementById('testimonial-form');
-            const submitTestimonialBtn = document.getElementById('submit-testimonial-btn');
-            const testimonialSubmissionMessageDiv = document.getElementById('testimonial-submission-message');
+            const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
-            // Scroll to Top Button Elements
-            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-            const SCROLL_THRESHOLD = 300;
+            const trapFocus = (modal) => {
+                const focusable = Array.from(modal.querySelectorAll(focusableElements));
+                if (focusable.length === 0) return;
+                const firstFocusable = focusable[0];
+                const lastFocusable = focusable[focusable.length - 1];
+
+                modal.addEventListener('keydown', (e) => {
+                    const isTabPressed = (e.key === 'Tab');
+                    if (!isTabPressed) return;
+
+                    if (e.shiftKey) { // Shift + Tab
+                        if (document.activeElement === firstFocusable) {
+                            lastFocusable.focus();
+                            e.preventDefault();
+                        }
+                    } else { // Tab
+                        if (document.activeElement === lastFocusable) {
+                            firstFocusable.focus();
+                            e.preventDefault();
+                        }
+                    }
+                });
+                firstFocusable.focus();
+            };
 
             const showModal = (modal) => {
                 modal.classList.remove('hidden');
+                trapFocus(modal);
                 const form = modal.querySelector('form');
                 const messageDiv = modal.querySelector('div[id$="-submission-message"]');
                 if (form) form.classList.remove('hidden');
@@ -329,15 +345,23 @@
                 modal.classList.add('hidden');
             };
 
-            // Contact Form Event Listeners
-            contactBtn.addEventListener('click', () => showModal(contactModal));
-            heroContactBtn.addEventListener('click', () => showModal(contactModal));
-            closeContactModalBtn.addEventListener('click', () => hideModal(contactModal));
-            cancelContactBtn.addEventListener('click', () => hideModal(contactModal));
+            // Event listeners for modal buttons
+            document.getElementById('contact-btn').addEventListener('click', () => showModal(contactModal));
+            document.getElementById('hero-contact-btn').addEventListener('click', () => showModal(contactModal));
+            document.getElementById('close-contact-modal-btn').addEventListener('click', () => hideModal(contactModal));
+            document.getElementById('cancel-contact-btn').addEventListener('click', () => hideModal(contactModal));
+            document.getElementById('add-testimonial-btn').addEventListener('click', () => showModal(testimonialModal));
+            document.getElementById('close-testimonial-modal-btn').addEventListener('click', () => hideModal(testimonialModal));
+            document.getElementById('cancel-testimonial-btn').addEventListener('click', () => hideModal(testimonialModal));
 
-            contactForm.addEventListener('submit', async (e) => {
+            // Form submission handlers
+            document.getElementById('contact-form').addEventListener('submit', async (e) => {
                 e.preventDefault();
                 
+                const contactForm = e.target;
+                const contactSubmissionMessageDiv = document.getElementById('contact-submission-message');
+                const submitContactBtn = document.getElementById('submit-contact-btn');
+
                 if (!supabaseClient) {
                     contactSubmissionMessageDiv.textContent = 'Supabase is not ready yet. Please try again.';
                     contactSubmissionMessageDiv.classList.remove('hidden');
@@ -345,45 +369,36 @@
                 }
                 
                 const formData = {
-                    name: e.target.name.value,
-                    email: e.target.email.value,
-                    message: e.target.message.value
+                    name: contactForm.name.value,
+                    email: contactForm.email.value,
+                    message: contactForm.message.value
                 };
 
                 submitContactBtn.textContent = 'Sending...';
                 submitContactBtn.disabled = true;
 
                 try {
-                    const { error } = await supabaseClient
-                        .from('contact_messages')
-                        .insert([formData]);
-
-                    if (error) {
-                        throw error;
-                    }
-
+                    const { error } = await supabaseClient.from('contact_messages').insert([formData]);
+                    if (error) throw error;
                     contactSubmissionMessageDiv.textContent = 'Thank you for your message! We will be in touch shortly.';
-                    contactSubmissionMessageDiv.classList.remove('hidden');
                     contactForm.reset();
                     contactForm.classList.add('hidden');
-
                 } catch (error) {
                     console.error('Error submitting contact form:', error.message);
                     contactSubmissionMessageDiv.textContent = 'Failed to send message. Please try again later.';
-                    contactSubmissionMessageDiv.classList.remove('hidden');
                 } finally {
+                    contactSubmissionMessageDiv.classList.remove('hidden');
                     submitContactBtn.textContent = 'Send Message';
                     submitContactBtn.disabled = false;
                 }
             });
 
-            // Testimonial Form Event Listeners
-            addTestimonialBtn.addEventListener('click', () => showModal(testimonialModal));
-            closeTestimonialModalBtn.addEventListener('click', () => hideModal(testimonialModal));
-            cancelTestimonialBtn.addEventListener('click', () => hideModal(testimonialModal));
-
-            testimonialForm.addEventListener('submit', async (e) => {
+            document.getElementById('testimonial-form').addEventListener('submit', async (e) => {
                 e.preventDefault();
+
+                const testimonialForm = e.target;
+                const testimonialSubmissionMessageDiv = document.getElementById('testimonial-submission-message');
+                const submitTestimonialBtn = document.getElementById('submit-testimonial-btn');
 
                 if (!supabaseClient) {
                     testimonialSubmissionMessageDiv.textContent = 'Supabase is not ready yet. Please try again.';
@@ -392,73 +407,54 @@
                 }
 
                 const formData = {
-                    quote: e.target.quote.value,
-                    author: e.target.author.value
+                    quote: testimonialForm.quote.value,
+                    author: testimonialForm.author.value
                 };
 
                 submitTestimonialBtn.textContent = 'Submitting...';
                 submitTestimonialBtn.disabled = true;
 
                 try {
-                    const { error } = await supabaseClient
-                        .from('testimonials')
-                        .insert([formData]);
-
-                    if (error) {
-                        throw error;
-                    }
-
+                    const { error } = await supabaseClient.from('testimonials').insert([formData]);
+                    if (error) throw error;
                     testimonialSubmissionMessageDiv.textContent = 'Thank you! Your testimonial has been submitted.';
-                    testimonialSubmissionMessageDiv.classList.remove('hidden');
                     testimonialForm.reset();
                     testimonialForm.classList.add('hidden');
-                    fetchTestimonials(); // Refresh the list
+                    fetchTestimonials();
                 } catch (error) {
                     console.error('Error submitting testimonial:', error.message);
-                    if (error.message.includes('violates row-level security policy')) {
-                         testimonialSubmissionMessageDiv.textContent = 'Submission failed due to a security policy error. Please ensure your Supabase "testimonials" table has an RLS policy that allows inserts from anon users.';
-                    } else {
-                        testimonialSubmissionMessageDiv.textContent = 'Failed to submit testimonial. Please try again.';
-                    }
-                    testimonialSubmissionMessageDiv.classList.remove('hidden');
+                    testimonialSubmissionMessageDiv.textContent = 'Failed to submit testimonial. Please try again.';
                 } finally {
+                    testimonialSubmissionMessageDiv.classList.remove('hidden');
                     submitTestimonialBtn.textContent = 'Submit Testimonial';
                     submitTestimonialBtn.disabled = false;
                 }
             });
 
+            // Testimonial fetching and rendering
             const fetchTestimonials = async () => {
                 const testimonialsContainer = document.getElementById('testimonials-container');
                 testimonialsContainer.innerHTML = '<p class="md:col-span-3 text-center text-gray-500">Loading testimonials...</p>';
 
+                if (!supabaseClient) {
+                    setTimeout(fetchTestimonials, 500);
+                    return;
+                }
+                
                 try {
-                    if (!supabaseClient) {
-                        setTimeout(fetchTestimonials, 500);
-                        return;
-                    }
-                    const { data, error } = await supabaseClient
-                        .from('testimonials')
-                        .select('*');
-
-                    if (error) {
-                        console.error('Supabase fetch error:', error);
-                        // Check for specific error codes or messages for better user feedback
-                        if (error.message && error.message.includes('Row-level security policy')) {
-                            throw new Error('Failed to load testimonials due to a security policy. Please check your Supabase RLS policies for the testimonials table.');
-                        }
-                        throw error;
-                    }
+                    const { data, error } = await supabaseClient.from('testimonials').select('*');
+                    if (error) throw error;
 
                     if (data.length > 0) {
                         testimonialsContainer.innerHTML = '';
                         data.forEach(testimonial => {
-                            const testimonialCard = document.createElement('div');
-                            testimonialCard.className = 'bg-white p-6 rounded-3xl shadow-lg flex flex-col items-center text-center transition-colors duration-300';
-                            testimonialCard.innerHTML = `
+                            const card = document.createElement('div');
+                            card.className = 'bg-white p-6 rounded-3xl shadow-lg flex flex-col items-center text-center transition-colors duration-300';
+                            card.innerHTML = `
                                 <p class="italic text-base text-gray-600 mb-4">"${testimonial.quote}"</p>
                                 <p class="font-semibold text-[#A5A58D]">- ${testimonial.author}</p>
                             `;
-                            testimonialsContainer.appendChild(testimonialCard);
+                            testimonialsContainer.appendChild(card);
                         });
                     } else {
                         testimonialsContainer.innerHTML = '<p class="md:col-span-3 text-center text-gray-500">No testimonials to display yet.</p>';
@@ -469,7 +465,10 @@
                 }
             };
             
-            // Scroll to Top Button Logic
+            // Scroll to Top Button
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            const SCROLL_THRESHOLD = 300;
+
             window.addEventListener('scroll', () => {
                 if (window.scrollY > SCROLL_THRESHOLD) {
                     scrollToTopBtn.classList.remove('hidden');
@@ -479,13 +478,12 @@
             });
 
             scrollToTopBtn.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
+
+            // Initial setup
+            loadSupabase();
         });
     </script>
-
 </body>
 </html>
