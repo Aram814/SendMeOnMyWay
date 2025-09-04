@@ -73,17 +73,8 @@
       .skip-link:focus {
           top: 0;
       }
-      #sun-icon {
-          display: block;
-      }
-      #moon-icon {
+      .hidden {
           display: none;
-      }
-      .dark #sun-icon {
-          display: none;
-      }
-      .dark #moon-icon {
-          display: block;
       }
     </style>
 </head>
@@ -93,25 +84,21 @@
 
     <!-- Header with Navigation -->
     <header class="p-6 relative z-10">
-        <nav class="flex justify-between items-center max-w-5xl mx-auto">
-            <button id="theme-toggle" class="p-2 rounded-full transition-transform duration-200 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent">
-                <svg id="sun-icon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-                </svg>
-                <svg id="moon-icon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                </svg>
+        <div class="absolute left-6 top-6">
+            <button id="theme-toggle" class="px-4 py-2 rounded-full transition-all duration-200 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent bg-primary text-white">
+                <span id="theme-text"></span>
             </button>
-            <!-- Hamburger menu button for mobile -->
-            <button id="open-menu-btn" class="p-2 md:hidden">
+        </div>
+        <nav class="flex justify-center items-center max-w-5xl mx-auto">
+            <a href="index.html" class="text-text font-bold text-xl hover:text-accent transition-colors">Send Me On My Way</a>
+            <div class="hidden md:flex items-center space-x-4 absolute right-6 top-6">
+                <a href="index.html" class="text-text hover:text-accent transition-colors">Home</a>
+            </div>
+            <button id="open-menu-btn" class="p-2 md:hidden absolute right-6 top-6">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
-            <!-- Desktop navigation links -->
-            <div class="hidden md:flex items-center space-x-4">
-                <a href="index.html" class="text-text hover:text-accent transition-colors">Home</a>
-            </div>
         </nav>
     </header>
 
@@ -193,145 +180,149 @@
                     topic: "Reminder",
                     date: "2025-08-11",
                     summary: "End of life planning starts now!<br>Swedish death cleaning (Döstädning) starts now!<br><br>How can I help you and your family?",
-                    image: "PLACEHOLDER"
+                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
                 },
                 {
                     title: "What Does Love Look Like to You?",
                     topic: "Thoughts",
                     date: "2024-05-05",
                     summary: "I am grateful to learn about elders in the community I serve.<br>Love is spending everyday like Groundhog Day and yet still learning so many new things about my clients and their lives.<p>Love is singing hymns to those who are losing their senses during their last stages of their lives.</p><p>Love is bringing clothes, books, decorations, my children, my dog- to enrich what is left of their lives.</p><p>Love is sitting and holding space for each and every one of them. Eepecially in the wee early hours - making sure they know they aren't alone. A squeeze of the hand, cold towel on their forehead.</p><p><sub>continued next post...</sub></p>",
-                    image: "PLACEHOLDER"
+                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
                 },
                 {
                     title: "What Does Love Look Like to You? - Continued",
                     topic: "Thoughts",
                     date: "2024-05-05",
                     summary: "<p>Love is serving coffee every morning unpaid after my shift and knowing exactly how everyone takes it.</p><p>Love is spending extra time with a man who thinks I'm his sweetheart, but I am able to make sure he takes his medication because of that title.</p><br>Love is a labor.<p>Death is a hard labor.</p><p>I'm glad I have been called to make it an easier one.</p><br>I hope I am remembered as such. And hopefully someone one day will step into my shoes so that I will be met at my end with ease.",
-                    image: "PLACEHOLDER"
+                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
                 },
                 {
                     title: "Grief Never Goes Away",
                     topic: "Grief",
                     date: "2024-05-01",
                     summary: "Grief never goes away. Grief never gets easier. But my does it show you how you have loved and what a privilege that is.<p>Let your inner child cry. It's a part of the healing process.</p>",
-                    image: "PLACEHOLDER"
+                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
                 },
                 {
                     title: "Be You!",
                     topic: "Reminder",
                     date: "2024-03-01",
                     summary: "Just your local Death Doula here with an important message - <br>Have the courage to live your life true to yourself, not the life expected of others!<br>Love you, through death.",
-                    image: "PLACEHOLDER"
+                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
                 }, 
                 {
                     title: "Is Your Health Care Agent the Right Person?",
                     topic: "Knowledge",
                     date: "2023-08-07",
                     summary: "A Health Care Agent is the person who will make medical decision for you should you not be able to speak for yourself. Bearing that in mind, if you have an emotionally charged person, they might not always follow your wishes. Make sure you elect a person who you trust to make those tough decisions on your behalf.",
-                    image: "PLACEHOLDER"
+                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
                 },
                 {
                     title: "Health Care Agents",
                     topic: "Knowledge",
                     date: "2023-08-14",
                     summary: "Your Health Care Agent will have the right to your medical records, consent or refuse any care/treatment/service/procedure that would affect a physical or mental condition, select or discharge health care providers and institutions, approve or disapprove tests surgeries and/or medications, approve or withhold/withdraw artifical nutrition and hydration along with all other forms of health care including CPR, sign up for organ donation, athorize an autopsy, and direct disposition of remains.",
-                    image: "PLACEHOLDER"
+                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
                 },
                 {
                     title: "Advanced Directives",
                     topic: "Knowledge",
                     date: "2023-08-07",
                     summary: "An Advance Directive is a legal document that notes your health care wishes should you become terminally ill and unable to make health care decisions for yourself.<br>They are FREE in EVERY state and you can download, print, and complete one to keep with your important paperwork! Reach out to me for any assistance or questions!",
-                    image: "PLACEHOLDER"
+                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
                 },
                 {
                     title: "Are You Prepared?",
                     topic: "Preparing",
                     date: "2023-08-04",
                     summary: "Over the course of time, you may change your mind about all of these details within the documents that I have previously talked about.<br><br>You can do this multiple times. As long as you <strong>UPDATE EVERYTHING</strong>!",
-                    image: "PLACEHOLDER"
+                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
                 },
                 {
                     title: "Death = Paperwork",
                     topic: "Preparing",
                     date: "2023-07-31",
                     summary: "Who is going to be your pencil pusher?<li>Advanced Directive</li><li>Durable Power of Attorney</li><li>Will</li><li>Revocable Living Trust</li><br><p>Are you prepared?</p>",
-                    image: "PLACEHOLDER"
+                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
                 },
                 {
                     title: "Ethical Will",
                     topic: "Knowledge",
                     date: "2023-07-2",
                     summary: "What is the difference between a legal will and an ethical will?<br>An ethical will can act as the explainer for why you made certain choices within your legal will.",
-                    image: "PLACEHOLDER"
+                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
                 },
                 {
                     title: "Your Story",
                     topic: "Planning",
                     date: "2023-07-25",
                     summary: "Leave your story. What made you, <strong>YOU</strong>?<br><br>StoryCorps/StoryWorth can be options you choose that I can help you set up and complete from start to finish.<br><br>Perhaps a family tree or a 'when I die' audio folder. Leave behind letters. Last words with your loved ones with Last[ing] Letters.<br>I can help you facilitate all of this and more!",
-                    image: "PLACEHOLDER"
+                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
                 },
                 {
                     title: "Legacy",
                     topic: "Planning",
                     date: "2023-07-11",
                     summary: "Legacy.. What does that mean to you? Remember by just existing you have already left a mark on this world in some way, shape, or form.",
-                    image: "PLACEHOLDER"
+                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
                 },
                 {
                     title: "Don't Wait Until It's Too Late",
                     topic: "Conversations",
                     date: "2023-07-07",
                     summary: "Words to some are the end all be all. Words to some are their love language. Words somehow leave a big mark on the brain and the heart. <br> People long to hear the following: <li>Forgive me</li><li>I forgive you</li><li>Thank you</li><li>I love you</li><li>I am proud of you</li><br><p>Bottom line: Really love those you love. Seek forgiveness in all aspects. And take the time to release those around you to live on.",
-                    image: "PLACEHOLDER"
+                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
                 },
                 {
                     title: "Clean Up Your Messes Now",
                     topic: "Preparing",
                     date: "2023-06-26",
                     summary: "One mess that can continue to mess up the survivors in your family has to do with billing accounts. Cable, internet, cell phone plans, club memberships, and every other bill that is a subscription. You should have someone else added on the bill with you. There's tons of red tape when shutting down or converting accounts to their name so they can manage them. Calling these companies now might save them the headache later!",
-                    image: "PLACEHOLDER"
+                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
                 },
                 {
                     title: "Gifts Beyond the Grave",
                     topic: "Preparing",
                     date: "2023-06-23",
                     summary: "I hate to break it to you, but your kids don't want your stuff. <p>For the most part.</p> <p> They have their own tastes and might not appreciate all of your items the way you do. So, start being the weird person that labels some of their things if you know someone wants something. THat weird snowglobe in the cabinet that you have or a duck sculpture- slap a little sticky note on the bottom for <em>'Susie'</em>.",
-                    image: "PLACEHOLDER"
+                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
                 },
                 {
                     title: "So, Why Are You Keeping All This Stuff?",
                     topic: "Preparing",
                     date: "2023-06-22",
                     summary: "Is it something that you still use or does it have old memories? Set aside time and energy to start going through some stuff. Even if it's just 10 minutes a day. When you go through your things reflecting on each item- what it means to you, letting go of what you no longer need, letting go of what no longer serves you can be cathartic! ",
-                    image: "PLACEHOLDER"
+                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
                 },
                 {
                     title: "Döstädning",
                     topic: "Preparing",
                     date: "2023-06-21",
                     summary: "In Swedish tradition, the process of purging is called Döstädning, also known as death cleaning. As you age, the Swedish expect that you will get rid of what is unnecessary and tidy up what's left. Cleaning up is one of the best gifts you can give loved ones and it's FREE. It will save them time, money, and heartache.",
-                    image: "PLACEHOLDER"
+                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
                 },
                 {
                     title: "The Hard Questions",
                     topic: "Conversations",
                     date: "2023-06-20",
                     summary: "Maybe you've already begun making the decisions about what you want at the end of life. If not, now is the time to start. To at least have the contemplations and conversations about it before you might end up in a time crunch with no idea of what you want! I challenge you. Start asking yourself the hard questions!",
-                    image: "PLACEHOLDER"
+                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
                 },
                 {
                     title: "Death is Profound",
                     topic: "Statistics",
                     date: "2023-06-19",
                     summary: "Next to birth, death is one of our most profound experiences. Shouldn't we talk about it, prepare for it, and use what it can teach us about how to live? Did you know that only 10-20% of humans die without warning. The rest of us will have time to get to know what's going to end our lives! It's up to YOU to determine what you want to do until that point!",
-                    image: "PLACEHOLDER"
+                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
                 },
             ];
 
             const searchInput = document.getElementById('searchInput');
             const postsContainer = document.getElementById('postsContainer');
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeText = document.getElementById('theme-text');
+            const body = document.body;
 
             function renderPosts(posts) {
                 postsContainer.innerHTML = ''; // Clear existing posts
@@ -366,43 +357,44 @@
             }
 
             // Theme toggle functionality
-            const themeToggleBtn = document.getElementById('theme-toggle');
-            const body = document.body;
-
-            const setLightMode = () => {
-                body.classList.remove('dark');
-            };
-
-            const setDarkMode = () => {
-                body.classList.add('dark');
+            const updateTheme = (isDark) => {
+                if (isDark) {
+                    body.classList.add('dark');
+                    themeText.textContent = "Light";
+                } else {
+                    body.classList.remove('dark');
+                    themeText.textContent = "Dark";
+                }
             };
 
             const toggleTheme = () => {
-                const isDark = body.classList.contains('dark');
-                if (isDark) {
-                    setLightMode();
-                    localStorage.setItem('theme', 'light');
-                } else {
-                    setDarkMode();
-                    localStorage.setItem('theme', 'dark');
-                }
+                const isDark = body.classList.toggle('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                updateTheme(isDark);
             };
-            
+
             // Set initial theme based on localStorage or system preference
             const savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-                if (savedTheme === 'dark') {
-                    setDarkMode();
-                } else {
-                    setLightMode();
-                }
-            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                setDarkMode();
-            } else {
-                setLightMode();
-            }
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            updateTheme(savedTheme === 'dark' || (savedTheme === null && prefersDark));
 
             themeToggleBtn.addEventListener('click', toggleTheme);
+
+            // "Scroll to top" button functionality
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.classList.remove('hidden');
+                } else {
+                    scrollToTopBtn.classList.add('hidden');
+                }
+            });
+
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
             
             // Mobile menu logic
             const mobileMenu = document.getElementById('mobile-menu');
