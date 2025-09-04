@@ -23,14 +23,28 @@
           --primary: #A5A58D;
           --accent: #B2A27A;
           --card-bg: #2B2B2B;
-          --hero-opacity: 0.3;
+          --hero-opacity: 0.8;
       }
       
       body {
-          background-color: var(--bg);
           color: var(--text);
-          transition: background-color 0.3s ease, color 0.3s ease;
+          transition: color 0.3s ease;
+          background-image: url('https://raw.githubusercontent.com/Aram814/SendMeOnMyWay/refs/heads/main/IMG_9988.JPG');
+          background-size: cover;
+          background-attachment: fixed;
+          background-position: center;
       }
+      
+      body::before {
+          content: '';
+          position: fixed;
+          inset: 0;
+          z-index: -1;
+          background-color: var(--bg);
+          opacity: var(--hero-opacity);
+          transition: background-color 0.3s ease, opacity 0.3s ease;
+      }
+      
       .font-inter {
           font-family: 'Inter', sans-serif;
       }
@@ -59,6 +73,18 @@
       .skip-link:focus {
           top: 0;
       }
+      #sun-icon {
+          display: block;
+      }
+      #moon-icon {
+          display: none;
+      }
+      .dark #sun-icon {
+          display: none;
+      }
+      .dark #moon-icon {
+          display: block;
+      }
     </style>
 </head>
 <body class="font-inter transition-colors duration-300">
@@ -69,7 +95,10 @@
     <header class="p-6 relative z-10">
         <nav class="flex justify-between items-center max-w-5xl mx-auto">
             <button id="theme-toggle" class="p-2 rounded-full transition-transform duration-200 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent">
-                <svg id="theme-icon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <svg id="sun-icon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                </svg>
+                <svg id="moon-icon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
                 </svg>
             </button>
@@ -81,13 +110,7 @@
             </button>
             <!-- Desktop navigation links -->
             <div class="hidden md:flex items-center space-x-4">
-                <a href="index.html#about" class="text-text hover:text-accent transition-colors">About</a>
-                <a href="index.html#services" class="text-text hover:text-accent transition-colors">Services</a>
-                <a href="index.html#testimonials" class="text-text hover:text-accent transition-colors">Testimonials</a>
-                <a href="blog.html" class="text-text hover:text-accent transition-colors">Blog</a>
-                <button id="contact-btn" class="px-4 py-2 bg-accent text-white rounded-lg hover-primary transition-colors-theme">
-                    Contact
-                </button>
+                <a href="index.html" class="text-text hover:text-accent transition-colors">Home</a>
             </div>
         </nav>
     </header>
@@ -96,13 +119,7 @@
     <div id="mobile-menu" class="fixed inset-0 bg-card z-50 flex flex-col items-center justify-center text-center transition-colors-theme hidden">
         <button id="close-menu-btn" class="absolute top-4 right-4 text-4xl text-text hover:text-accent">&times;</button>
         <div class="space-y-6 flex flex-col items-center">
-            <a href="index.html#about" class="text-3xl text-primary hover:text-accent transition-colors block">About</a>
-            <a href="index.html#services" class="text-3xl text-primary hover:text-accent transition-colors block">Services</a>
-            <a href="index.html#testimonials" class="text-3xl text-primary hover:text-accent transition-colors block">Testimonials</a>
-            <a href="blog.html" class="text-3xl text-primary hover:text-accent transition-colors block">Blog</a>
-            <button id="contact-btn-mobile" class="mt-4 px-6 py-3 text-xl bg-accent text-white rounded-lg hover-primary transition-colors-theme">
-                Contact
-            </button>
+            <a href="index.html" class="text-3xl text-primary hover:text-accent transition-colors block">Home</a>
         </div>
     </div>
 
@@ -116,32 +133,15 @@
             </p>
         </section>
 
-        <!-- Placeholder for Blog Posts -->
-        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Example Blog Post Card 1 -->
-            <div class="bg-card p-6 rounded-2xl shadow-lg transition-colors-theme">
-                <img src="IMG_9966.JPG" alt="A person looking out a window on a rainy day, in a moment of quiet reflection." class="rounded-xl w-full h-48 object-cover mb-4" />
-                <h3 class="text-2xl font-bold text-primary mb-2">The Importance of Presence</h3>
-                <p class="text-sm text-accent mb-4">October 26, 2023</p>
-                <p class="text-text text-base">In our fast-paced world, the simple act of being present can be the most profound gift we give to those nearing the end of their lives...</p>
-                <a href="#" class="mt-4 inline-block text-accent hover:text-primary font-semibold transition-colors">Read More &rarr;</a>
-            </div>
-            <!-- Example Blog Post Card 2 -->
-            <div class="bg-card p-6 rounded-2xl shadow-lg transition-colors-theme">
-                <img src="IMG_9970.JPG" alt="A caring, compassionate person holding the hand of a comforting family member." class="rounded-xl w-full h-48 object-cover mb-4" />
-                <h3 class="text-2xl font-bold text-primary mb-2">Understanding End-of-Life Wishes</h3>
-                <p class="text-sm text-accent mb-4">October 19, 2023</p>
-                <p class="text-text text-base">Navigating conversations about a final journey can be difficult. This guide provides a compassionate starting point...</p>
-                <a href="#" class="mt-4 inline-block text-accent hover:text-primary font-semibold transition-colors">Read More &rarr;</a>
-            </div>
-            <!-- Example Blog Post Card 3 -->
-            <div class="bg-card p-6 rounded-2xl shadow-lg transition-colors-theme">
-                <img src="IMG_9967.png" alt="A person writing in a notebook, with gentle hands helping them." class="rounded-xl w-full h-48 object-cover mb-4" />
-                <h3 class="text-2xl font-bold text-primary mb-2">Finding Peace in the Final Moments</h3>
-                <p class="text-sm text-accent mb-4">October 12, 2023</p>
-                <p class="text-text text-base">As a death doula, my role is to help create a serene and calm environment, ensuring dignity and peace for the dying and their loved ones...</p>
-                <a href="#" class="mt-4 inline-block text-accent hover:text-primary font-semibold transition-colors">Read More &rarr;</a>
-            </div>
+        <!-- Search Input -->
+        <div class="mb-8 max-w-2xl mx-auto">
+            <input type="text" id="searchInput" placeholder="Search for topics, titles, or dates..." class="w-full px-5 py-3 text-lg border-2 border-gray-300 rounded-full focus:outline-none focus:ring-4 focus:ring-accent focus:border-accent transition-all duration-300 bg-card text-text">
+        </div>
+
+        <!-- Blog Posts Container -->
+        <section id="postsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Blog posts will be dynamically injected here -->
+            <p class="col-span-full text-center text-text">Loading posts...</p>
         </section>
     </main>
 
@@ -176,39 +176,6 @@
         </div>
     </footer>
 
-    <!-- Contact Form Modal -->
-    <div id="contact-modal" class="fixed inset-0 bg-gray-950 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden" aria-modal="true">
-        <div class="bg-card rounded-xl shadow-2xl p-8 max-w-lg w-full transition-colors-theme">
-            <div class="flex justify-between items-center mb-6">
-                <h4 class="text-2xl font-bold text-primary">Contact Us</h4>
-                <button id="close-contact-modal-btn" class="text-gray-500 hover:text-gray-800 dark:hover:text-gray-300">&times;</button>
-            </div>
-            <div id="contact-submission-message" class="text-center text-lg font-semibold my-6 hidden"></div>
-            <form id="contact-form" class="space-y-4">
-                <div>
-                    <label for="name" class="block text-text font-semibold mb-1">Name</label>
-                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 bg-gray-100 dark:bg-gray-700 text-text rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required>
-                </div>
-                <div>
-                    <label for="email" class="block text-text font-semibold mb-1">Email</label>
-                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 bg-gray-100 dark:bg-gray-700 text-text rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required>
-                </div>
-                <div>
-                    <label for="message" class="block text-text font-semibold mb-1">Message</label>
-                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 bg-gray-100 dark:bg-gray-700 text-text rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required></textarea>
-                </div>
-                <div class="flex justify-end space-x-4">
-                    <button type="button" id="cancel-contact-btn" class="px-6 py-2 rounded-lg text-text hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors-theme">
-                        Cancel
-                    </button>
-                    <button type="submit" id="submit-contact-btn" class="px-6 py-2 bg-accent text-white rounded-lg hover-primary transition-colors-theme">
-                        Send Message
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-
     <!-- Scroll to Top Button -->
     <button id="scrollToTopBtn" aria-label="Scroll to top" class="fixed bottom-8 right-8 bg-primary text-white p-4 rounded-full shadow-lg transition-transform duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent z-50 hidden">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -218,60 +185,147 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const contactModal = document.getElementById('contact-modal');
-            const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
-            const trapFocus = (modal) => {
-                const focusable = Array.from(modal.querySelectorAll(focusableElements));
-                if (focusable.length === 0) return;
-                const firstFocusable = focusable[0];
-                const lastFocusable = focusable[focusable.length - 1];
+            // Sample blog data. In a real application, this would come from a database.
+            const blogPosts = [
+                {
+                    title: "Advanced Directives",
+                    topic: "Knowledge",
+                    date: "2023-08-07",
+                    summary: "An Advance Directive is a legal document that notes your health care wishes should you become terminally ill and unable to make health care decisions for yourself.<br>They are FREE in EVERY state and you can download, print, and complete one to keep with your important paperwork! Reach out to me for any assistance or questions!",
+                    image: "PLACEHOLDER"
+                },
+                {
+                    title: "Are You Prepared?",
+                    topic: "Preparing",
+                    date: "2023-08-04",
+                    summary: "Over the course of time, you may change your mind about all of these details within the documents that I have previously talked about.<br><br>You can do this multiple times. As long as you <strong>UPDATE EVERYTHING</strong>!",
+                    image: "PLACEHOLDER"
+                },
+                {
+                    title: "Death = Paperwork",
+                    topic: "Preparing",
+                    date: "2023-07-31",
+                    summary: "Who is going to be your pencil pusher?<li>Advanced Directive</li><li>Durable Power of Attorney</li><li>Will</li><li>Revocable Living Trust</li><br><p>Are you prepared?</p>",
+                    image: "PLACEHOLDER"
+                },
+                {
+                    title: "Ethical Will",
+                    topic: "Knowledge",
+                    date: "2023-07-2",
+                    summary: "What is the difference between a legal will and an ethical will?<br>An ethical will can act as the explainer for why you made certain choices within your legal will.",
+                    image: "PLACEHOLDER"
+                },
+                {
+                    title: "Your Story",
+                    topic: "Planning",
+                    date: "2023-07-25",
+                    summary: "Leave your story. What made you, <strong>YOU</strong>?<br><br>StoryCorps/StoryWorth can be options you choose that I can help you set up and complete from start to finish.<br><br>Perhaps a family tree or a 'when I die' audio folder. Leave behind letters. Last words with your loved ones with Last[ing] Letters.<br>I can help you facilitate all of this and more!",
+                    image: "PLACEHOLDER"
+                },
+                {
+                    title: "Legacy",
+                    topic: "Planning",
+                    date: "2023-07-11",
+                    summary: "Legacy.. What does that mean to you? Remember by just existing you have already left a mark on this world in some way, shape, or form.",
+                    image: "PLACEHOLDER"
+                },
+                {
+                    title: "Don't Wait Until It's Too Late",
+                    topic: "Conversations",
+                    date: "2023-07-07",
+                    summary: "Words to some are the end all be all. Words to some are their love language. Words somehow leave a big mark on the brain and the heart. <br> People long to hear the following: <li>Forgive me</li><li>I forgive you</li><li>Thank you</li><li>I love you</li><li>I am proud of you</li><br><p>Bottom line: Really love those you love. Seek forgiveness in all aspects. And take the time to release those around you to live on.",
+                    image: "PLACEHOLDER"
+                },
+                {
+                    title: "Clean Up Your Messes Now",
+                    topic: "Preparing",
+                    date: "2023-06-26",
+                    summary: "One mess that can continue to mess up the survivors in your family has to do with billing accounts. Cable, internet, cell phone plans, club memberships, and every other bill that is a subscription. You should have someone else added on the bill with you. There's tons of red tape when shutting down or converting accounts to their name so they can manage them. Calling these companies now might save them the headache later!",
+                    image: "PLACEHOLDER"
+                },
+                {
+                    title: "Gifts Beyond the Grave",
+                    topic: "Preparing",
+                    date: "2023-06-23",
+                    summary: "I hate to break it to you, but your kids don't want your stuff. <p>For the most part.</p> <p> They have their own tastes and might not appreciate all of your items the way you do. So, start being the weird person that labels some of their things if you know someone wants something. THat weird snowglobe in the cabinet that you have or a duck sculpture- slap a little sticky note on the bottom for <em>'Susie'</em>.",
+                    image: "PLACEHOLDER"
+                },
+                {
+                    title: "So, Why Are You Keeping All This Stuff?",
+                    topic: "Preparing",
+                    date: "2023-06-22",
+                    summary: "Is it something that you still use or does it have old memories? Set aside time and energy to start going through some stuff. Even if it's just 10 minutes a day. When you go through your things reflecting on each item- what it means to you, letting go of what you no longer need, letting go of what no longer serves you can be cathartic! ",
+                    image: "PLACEHOLDER"
+                },
+                {
+                    title: "Döstädning",
+                    topic: "Preparing",
+                    date: "2023-06-21",
+                    summary: "In Swedish tradition, the process of purging is called Döstädning, also known as death cleaning. As you age, the Swedish expect that you will get rid of what is unnecessary and tidy up what's left. Cleaning up is one of the best gifts you can give loved ones and it's FREE. It will save them time, money, and heartache.",
+                    image: "PLACEHOLDER"
+                },
+                {
+                    title: "The Hard Questions",
+                    topic: "Conversations",
+                    date: "2023-06-20",
+                    summary: "Maybe you've already begun making the decisions about what you want at the end of life. If not, now is the time to start. To at least have the contemplations and conversations about it before you might end up in a time crunch with no idea of what you want! I challenge you. Start asking yourself the hard questions!",
+                    image: "PLACEHOLDER"
+                },
+                {
+                    title: "Death is Profound",
+                    topic: "Statistics",
+                    date: "2023-06-19",
+                    summary: "Next to birth, death is one of our most profound experiences. Shouldn't we talk about it, prepare for it, and use what it can teach us about how to live? Did you know that only 10-20% of humans die without warning. The rest of us will have time to get to know what's going to end our lives! It's up to YOU to determine what you want to do until that point!",
+                    image: "PLACEHOLDER"
+                },
+            ];
 
-                modal.addEventListener('keydown', (e) => {
-                    const isTabPressed = (e.key === 'Tab');
-                    if (!isTabPressed) return;
+            const searchInput = document.getElementById('searchInput');
+            const postsContainer = document.getElementById('postsContainer');
 
-                    if (e.shiftKey) { // Shift + Tab
-                        if (document.activeElement === firstFocusable) {
-                            lastFocusable.focus();
-                            e.preventDefault();
-                        }
-                    } else { // Tab
-                        if (document.activeElement === lastFocusable) {
-                            firstFocusable.focus();
-                            e.preventDefault();
-                        }
-                    }
+            function renderPosts(posts) {
+                postsContainer.innerHTML = ''; // Clear existing posts
+                if (posts.length === 0) {
+                    postsContainer.innerHTML = '<p class="col-span-full text-center text-text">No results found. Please try a different search term.</p>';
+                    return;
+                }
+                posts.forEach(post => {
+                    const postElement = document.createElement('div');
+                    postElement.className = 'bg-card p-6 rounded-2xl shadow-lg transition-colors-theme';
+                    postElement.innerHTML = `
+                        <img src="${post.image}" alt="${post.title}" class="rounded-xl w-full h-48 object-cover mb-4" />
+                        <h3 class="text-2xl font-bold text-primary mb-2">${post.title}</h3>
+                        <p class="text-sm text-accent mb-4">${post.date} &bull; ${post.topic}</p>
+                        <p class="text-text text-base">${post.summary}</p>
+                    `;
+                    postsContainer.appendChild(postElement);
                 });
-                firstFocusable.focus();
-            };
+            }
 
-            const showModal = (modal) => {
-                modal.classList.remove('hidden');
-                trapFocus(modal);
-                const form = modal.querySelector('form');
-                const messageDiv = modal.querySelector('div[id$="-submission-message"]');
-                if (form) form.classList.remove('hidden');
-                if (messageDiv) messageDiv.classList.add('hidden');
-            };
-
-            const hideModal = (modal) => {
-                modal.classList.add('hidden');
-            };
+            function handleSearch() {
+                const query = searchInput.value.toLowerCase().trim();
+                const filteredPosts = blogPosts.filter(post => {
+                    const titleMatch = post.title.toLowerCase().includes(query);
+                    const topicMatch = post.topic.toLowerCase().includes(query);
+                    const dateMatch = post.date.toLowerCase().includes(query);
+                    const summaryMatch = post.summary.toLowerCase().includes(query);
+                    
+                    return titleMatch || topicMatch || dateMatch || summaryMatch;
+                });
+                renderPosts(filteredPosts);
+            }
 
             // Theme toggle functionality
             const themeToggleBtn = document.getElementById('theme-toggle');
-            const themeIcon = document.getElementById('theme-icon');
             const body = document.body;
 
             const setLightMode = () => {
                 body.classList.remove('dark');
-                themeIcon.innerHTML = `<path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>`;
             };
 
             const setDarkMode = () => {
                 body.classList.add('dark');
-                themeIcon.innerHTML = `<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>`;
             };
 
             const toggleTheme = () => {
@@ -300,16 +354,7 @@
             }
 
             themeToggleBtn.addEventListener('click', toggleTheme);
-
-            // Event listeners for modal buttons
-            document.getElementById('contact-btn').addEventListener('click', () => showModal(contactModal));
-            document.getElementById('contact-btn-mobile').addEventListener('click', () => {
-                hideModal(document.getElementById('mobile-menu'));
-                showModal(contactModal);
-            });
-            document.getElementById('close-contact-modal-btn').addEventListener('click', () => hideModal(contactModal));
-            document.getElementById('cancel-contact-btn').addEventListener('click', () => hideModal(contactModal));
-
+            
             // Mobile menu logic
             const mobileMenu = document.getElementById('mobile-menu');
             const openMenuBtn = document.getElementById('open-menu-btn');
@@ -336,17 +381,11 @@
                 }
             });
 
-            // Form submission handler (for contact form in this file)
-            document.getElementById('contact-form').addEventListener('submit', async (e) => {
-                e.preventDefault();
-                
-                const contactForm = e.target;
-                const contactSubmissionMessageDiv = document.getElementById('contact-submission-message');
-                const submitContactBtn = document.getElementById('submit-contact-btn');
+            // Add event listener to the search input
+            searchInput.addEventListener('input', handleSearch);
 
-                contactSubmissionMessageDiv.textContent = 'Sorry, this form is non-functional on the blog page. Please use the contact form on the home page.';
-                contactSubmissionMessageDiv.classList.remove('hidden');
-            });
+            // Initial render of all posts
+            renderPosts(blogPosts);
         });
     </script>
 </body>
