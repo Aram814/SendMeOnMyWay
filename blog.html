@@ -84,7 +84,7 @@
 
     <!-- Header with Navigation -->
     <header class="p-6 relative z-10">
-        <div class="absolute left-6 top-6">
+        <div class="absolute left-6 top-6 flex space-x-2">
             <button id="theme-toggle" class="px-4 py-2 rounded-full transition-all duration-200 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent bg-primary text-white">
                 <span id="theme-text"></span>
             </button>
@@ -93,6 +93,7 @@
             <a href="index.html" class="text-text font-bold text-xl hover:text-accent transition-colors">Send Me On My Way</a>
             <div class="hidden md:flex items-center space-x-4 absolute right-6 top-6">
                 <a href="index.html" class="text-text hover:text-accent transition-colors">Home</a>
+                <button id="admin-login-btn" class="text-text hover:text-accent transition-colors">Admin</button>
             </div>
             <button id="open-menu-btn" class="p-2 md:hidden absolute right-6 top-6">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -107,6 +108,7 @@
         <button id="close-menu-btn" class="absolute top-4 right-4 text-4xl text-text hover:text-accent">&times;</button>
         <div class="space-y-6 flex flex-col items-center">
             <a href="index.html" class="text-3xl text-primary hover:text-accent transition-colors block">Home</a>
+            <button id="admin-login-btn-mobile" class="text-3xl text-primary hover:text-accent transition-colors block">Admin</button>
         </div>
     </div>
 
@@ -125,11 +127,54 @@
             <input type="text" id="searchInput" placeholder="Search for topics, titles, or dates..." class="w-full px-5 py-3 text-lg border-2 border-gray-300 rounded-full focus:outline-none focus:ring-4 focus:ring-accent focus:border-accent transition-all duration-300 bg-card text-text">
         </div>
 
+        <!-- Admin Panel & Login -->
+        <div id="admin-section" class="mb-12 hidden">
+            <section id="admin-panel" class="bg-card p-6 md:p-8 rounded-xl shadow-lg border border-gray-200 transition-colors-theme">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-semibold text-text">Admin Dashboard</h2>
+                    <button id="logout-btn" class="px-4 py-2 bg-red-600 text-white font-medium rounded-lg shadow hover:bg-red-700 transition-colors duration-200">Logout</button>
+                </div>
+    
+                <div id="add-post-section" class="mb-8">
+                    <h3 class="text-xl font-medium text-text mb-4">Add New Post</h3>
+                    <form id="add-post-form" class="space-y-4">
+                        <input type="text" id="post-title" placeholder="Title" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent transition-shadow bg-card text-text">
+                        <input type="text" id="post-topic" placeholder="Topic" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent transition-shadow bg-card text-text">
+                        <input type="text" id="post-image" placeholder="Image URL (e.g., https://placehold.co/600x400)" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent transition-shadow bg-card text-text">
+                        <textarea id="post-summary" placeholder="Summary (for text posts)" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent transition-shadow bg-card text-text"></textarea>
+                        <select id="post-type" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent transition-shadow bg-card text-text">
+                            <option value="text">Text Post</option>
+                            <option value="image">Image Post</option>
+                        </select>
+                        <button type="submit" class="w-full py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-accent transition-colors duration-200">Submit Post</button>
+                    </form>
+                    <p id="form-message" class="mt-4 text-center text-sm"></p>
+                </div>
+            </section>
+        </div>
+        
+        <div id="login-form-section" class="mb-12 hidden">
+            <div class="w-full max-w-md mx-auto bg-card p-6 md:p-8 rounded-xl shadow-lg border border-gray-200 transition-colors-theme">
+                <h2 class="text-2xl font-semibold text-text mb-6 text-center">Admin Login</h2>
+                <form id="login-form" class="space-y-4">
+                    <input type="email" id="login-email" placeholder="Email" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent transition-shadow bg-card text-text">
+                    <input type="password" id="login-password" placeholder="Password" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent transition-shadow bg-card text-text">
+                    <button type="submit" class="w-full py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-accent transition-colors duration-200">Log In</button>
+                </form>
+                <p id="login-message" class="mt-4 text-center text-red-500 text-sm"></p>
+            </div>
+        </div>
+
         <!-- Blog Posts Container -->
-        <section id="postsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Blog posts will be dynamically injected here -->
-            <p class="col-span-full text-center text-text">Loading posts...</p>
+        <section id="postsContainer" class="flex flex-wrap items-start justify-center gap-8">
+            <div id="loading" class="w-full text-center text-text p-8">Loading posts...</div>
+            <!-- Columns for masonry-like layout -->
+            <div id="column1" class="flex flex-col gap-8 w-full md:w-[48%] lg:w-[31%]"></div>
+            <div id="column2" class="flex flex-col gap-8 w-full md:w-[48%] lg:w-[31%]"></div>
+            <div id="column3" class="flex-col gap-8 w-full md:flex lg:flex lg:w-[31%]"></div>
         </section>
+
+        <div id="no-results" class="hidden text-center text-text p-8 col-span-full">No results found. Please try a different search term.</div>
     </main>
 
     <!-- Footer -->
@@ -170,152 +215,14 @@
         </svg>
     </button>
 
-    <script>
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
         document.addEventListener('DOMContentLoaded', () => {
 
-            // Sample blog data. In a real application, this would come from a database.
-            const blogPosts = [
-                {
-                    title: "Ask Me About Death!",
-                    topic: "Reminder",
-                    date: "2025-08-11",
-                    summary: "End of life planning starts now!<br>Swedish death cleaning (Döstädning) starts now!<br><br>How can I help you and your family?",
-                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
-                },
-                {
-                    title: "What Does Love Look Like to You?",
-                    topic: "Thoughts",
-                    date: "2024-05-05",
-                    summary: "I am grateful to learn about elders in the community I serve.<br>Love is spending everyday like Groundhog Day and yet still learning so many new things about my clients and their lives.<p>Love is singing hymns to those who are losing their senses during their last stages of their lives.</p><p>Love is bringing clothes, books, decorations, my children, my dog- to enrich what is left of their lives.</p><p>Love is sitting and holding space for each and every one of them. Eepecially in the wee early hours - making sure they know they aren't alone. A squeeze of the hand, cold towel on their forehead.</p><p><sub>continued next post...</sub></p>",
-                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
-                },
-                {
-                    title: "What Does Love Look Like to You? - Continued",
-                    topic: "Thoughts",
-                    date: "2024-05-05",
-                    summary: "<p>Love is serving coffee every morning unpaid after my shift and knowing exactly how everyone takes it.</p><p>Love is spending extra time with a man who thinks I'm his sweetheart, but I am able to make sure he takes his medication because of that title.</p><br>Love is a labor.<p>Death is a hard labor.</p><p>I'm glad I have been called to make it an easier one.</p><br>I hope I am remembered as such. And hopefully someone one day will step into my shoes so that I will be met at my end with ease.",
-                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
-                },
-                {
-                    title: "Grief Never Goes Away",
-                    topic: "Grief",
-                    date: "2024-05-01",
-                    summary: "Grief never goes away. Grief never gets easier. But my does it show you how you have loved and what a privilege that is.<p>Let your inner child cry. It's a part of the healing process.</p>",
-                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
-                },
-                {
-                    title: "Be You!",
-                    topic: "Reminder",
-                    date: "2024-03-01",
-                    summary: "Just your local Death Doula here with an important message - <br>Have the courage to live your life true to yourself, not the life expected of others!<br>Love you, through death.",
-                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
-                }, 
-                {
-                    title: "Is Your Health Care Agent the Right Person?",
-                    topic: "Knowledge",
-                    date: "2023-08-07",
-                    summary: "A Health Care Agent is the person who will make medical decision for you should you not be able to speak for yourself. Bearing that in mind, if you have an emotionally charged person, they might not always follow your wishes. Make sure you elect a person who you trust to make those tough decisions on your behalf.",
-                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
-                },
-                {
-                    title: "Health Care Agents",
-                    topic: "Knowledge",
-                    date: "2023-08-14",
-                    summary: "Your Health Care Agent will have the right to your medical records, consent or refuse any care/treatment/service/procedure that would affect a physical or mental condition, select or discharge health care providers and institutions, approve or disapprove tests surgeries and/or medications, approve or withhold/withdraw artifical nutrition and hydration along with all other forms of health care including CPR, sign up for organ donation, athorize an autopsy, and direct disposition of remains.",
-                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
-                },
-                {
-                    title: "Advanced Directives",
-                    topic: "Knowledge",
-                    date: "2023-08-07",
-                    summary: "An Advance Directive is a legal document that notes your health care wishes should you become terminally ill and unable to make health care decisions for yourself.<br>They are FREE in EVERY state and you can download, print, and complete one to keep with your important paperwork! Reach out to me for any assistance or questions!",
-                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
-                },
-                {
-                    title: "Are You Prepared?",
-                    topic: "Preparing",
-                    date: "2023-08-04",
-                    summary: "Over the course of time, you may change your mind about all of these details within the documents that I have previously talked about.<br><br>You can do this multiple times. As long as you <strong>UPDATE EVERYTHING</strong>!",
-                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
-                },
-                {
-                    title: "Death = Paperwork",
-                    topic: "Preparing",
-                    date: "2023-07-31",
-                    summary: "Who is going to be your pencil pusher?<li>Advanced Directive</li><li>Durable Power of Attorney</li><li>Will</li><li>Revocable Living Trust</li><br><p>Are you prepared?</p>",
-                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
-                },
-                {
-                    title: "Ethical Will",
-                    topic: "Knowledge",
-                    date: "2023-07-2",
-                    summary: "What is the difference between a legal will and an ethical will?<br>An ethical will can act as the explainer for why you made certain choices within your legal will.",
-                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
-                },
-                {
-                    title: "Your Story",
-                    topic: "Planning",
-                    date: "2023-07-25",
-                    summary: "Leave your story. What made you, <strong>YOU</strong>?<br><br>StoryCorps/StoryWorth can be options you choose that I can help you set up and complete from start to finish.<br><br>Perhaps a family tree or a 'when I die' audio folder. Leave behind letters. Last words with your loved ones with Last[ing] Letters.<br>I can help you facilitate all of this and more!",
-                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
-                },
-                {
-                    title: "Legacy",
-                    topic: "Planning",
-                    date: "2023-07-11",
-                    summary: "Legacy.. What does that mean to you? Remember by just existing you have already left a mark on this world in some way, shape, or form.",
-                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
-                },
-                {
-                    title: "Don't Wait Until It's Too Late",
-                    topic: "Conversations",
-                    date: "2023-07-07",
-                    summary: "Words to some are the end all be all. Words to some are their love language. Words somehow leave a big mark on the brain and the heart. <br> People long to hear the following: <li>Forgive me</li><li>I forgive you</li><li>Thank you</li><li>I love you</li><li>I am proud of you</li><br><p>Bottom line: Really love those you love. Seek forgiveness in all aspects. And take the time to release those around you to live on.",
-                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
-                },
-                {
-                    title: "Clean Up Your Messes Now",
-                    topic: "Preparing",
-                    date: "2023-06-26",
-                    summary: "One mess that can continue to mess up the survivors in your family has to do with billing accounts. Cable, internet, cell phone plans, club memberships, and every other bill that is a subscription. You should have someone else added on the bill with you. There's tons of red tape when shutting down or converting accounts to their name so they can manage them. Calling these companies now might save them the headache later!",
-                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
-                },
-                {
-                    title: "Gifts Beyond the Grave",
-                    topic: "Preparing",
-                    date: "2023-06-23",
-                    summary: "I hate to break it to you, but your kids don't want your stuff. <p>For the most part.</p> <p> They have their own tastes and might not appreciate all of your items the way you do. So, start being the weird person that labels some of their things if you know someone wants something. THat weird snowglobe in the cabinet that you have or a duck sculpture- slap a little sticky note on the bottom for <em>'Susie'</em>.",
-                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
-                },
-                {
-                    title: "So, Why Are You Keeping All This Stuff?",
-                    topic: "Preparing",
-                    date: "2023-06-22",
-                    summary: "Is it something that you still use or does it have old memories? Set aside time and energy to start going through some stuff. Even if it's just 10 minutes a day. When you go through your things reflecting on each item- what it means to you, letting go of what you no longer need, letting go of what no longer serves you can be cathartic! ",
-                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
-                },
-                {
-                    title: "Döstädning",
-                    topic: "Preparing",
-                    date: "2023-06-21",
-                    summary: "In Swedish tradition, the process of purging is called Döstädning, also known as death cleaning. As you age, the Swedish expect that you will get rid of what is unnecessary and tidy up what's left. Cleaning up is one of the best gifts you can give loved ones and it's FREE. It will save them time, money, and heartache.",
-                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
-                },
-                {
-                    title: "The Hard Questions",
-                    topic: "Conversations",
-                    date: "2023-06-20",
-                    summary: "Maybe you've already begun making the decisions about what you want at the end of life. If not, now is the time to start. To at least have the contemplations and conversations about it before you might end up in a time crunch with no idea of what you want! I challenge you. Start asking yourself the hard questions!",
-                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
-                },
-                {
-                    title: "Death is Profound",
-                    topic: "Statistics",
-                    date: "2023-06-19",
-                    summary: "Next to birth, death is one of our most profound experiences. Shouldn't we talk about it, prepare for it, and use what it can teach us about how to live? Did you know that only 10-20% of humans die without warning. The rest of us will have time to get to know what's going to end our lives! It's up to YOU to determine what you want to do until that point!",
-                    image: "https://placehold.co/400x300/F2EFEA/374151?text=placeholder"
-                },
-            ];
+            const SUPABASE_URL = 'https://zmjrlezcjwolzvvzglvi.supabase.co';
+            const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InptanJsZXpjandvbHp2dnpnbHZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY5MTQ4NTQsImV4cCI6MjA3MjQ5MDg1NH0.JRcNdAUC4ZLB7bCLwXEXeyr_sV2nQ7k_XY11TV_AooU';
+            const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
             const searchInput = document.getElementById('searchInput');
             const postsContainer = document.getElementById('postsContainer');
@@ -323,40 +230,356 @@
             const themeToggleBtn = document.getElementById('theme-toggle');
             const themeText = document.getElementById('theme-text');
             const body = document.body;
+            const noResultsMessage = document.getElementById('no-results');
+            
+            const mobileMenu = document.getElementById('mobile-menu');
+            const openMenuBtn = document.getElementById('open-menu-btn');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const mobileLinks = mobileMenu.querySelectorAll('a');
 
-            function renderPosts(posts) {
-                postsContainer.innerHTML = ''; // Clear existing posts
+            const loginFormSection = document.getElementById('login-form-section');
+            const adminSection = document.getElementById('admin-section');
+            const loginForm = document.getElementById('login-form');
+            const loginMessage = document.getElementById('login-message');
+            const addPostForm = document.getElementById('add-post-form');
+            const formMessage = document.getElementById('form-message');
+            const logoutBtn = document.getElementById('logout-btn');
+            const adminLoginBtn = document.getElementById('admin-login-btn');
+            const adminLoginBtnMobile = document.getElementById('admin-login-btn-mobile');
+            const loadingIndicator = document.getElementById('loading');
+
+            const columns = [
+                document.getElementById('column1'),
+                document.getElementById('column2'),
+                document.getElementById('column3')
+            ];
+
+            let allPosts = [];
+
+            // Hardcoded posts to display alongside database entries.
+            // These will be displayed first.
+            const hardcodedPosts = [
+                // Wide Image Post
+                {
+                    type: "image",
+                    title: "A peaceful morning",
+                    image: "https://raw.githubusercontent.com/Aram814/SendMeOnMyWay/refs/heads/main/IMG_9966.JPG",
+                },
+                // Text Post
+                {
+                    type: "text",
+                    title: "Ask Me About Death!",
+                    topic: "Reminder",
+                    date: "2025-08-11",
+                    summary: "End of life planning starts now!<br>Swedish death cleaning (Döstädning) starts now!<br><br>How can I help you and your family?",
+                },
+                // Tall Text Post
+                {
+                    type: "text",
+                    title: "Is Your Health Care Agent the Right Person?",
+                    topic: "Knowledge",
+                    date: "2023-08-07",
+                    summary: "A Health Care Agent is the person who will make medical decision for you should you not be able to speak for yourself. Bearing that in mind, if you have an emotionally charged person, they might not always follow your wishes. Make sure you elect a person who you trust to make those tough decisions on your behalf. A Health Care Agent is the person who will make medical decision for you should you not be able to speak for yourself. Bearing that in mind, if you have an emotionally charged person, they might not always follow your wishes. Make sure you elect a person who you trust to make those tough decisions on your behalf.",
+                },
+                // Image Post
+                {
+                    type: "image",
+                    title: "A moment of reflection",
+                    image: "https://raw.githubusercontent.com/Aram814/SendMeOnMyWay/refs/heads/main/IMG_9970.JPG"
+                },
+                // Tall Text Post
+                {
+                    type: "text",
+                    title: "What Does Love Look Like to You?",
+                    topic: "Thoughts",
+                    date: "2024-05-05",
+                    summary: "I am grateful to learn about elders in the community I serve.<br>Love is spending everyday like Groundhog Day and yet still learning so many new things about my clients and their lives.<br>Love is singing hymns to those who are losing their senses during their last stages of their lives.<br>Love is bringing clothes, books, decorations, my children, my dog- to enrich what is left of their lives.<br>Love is sitting and holding space for each and every one of them. Eepecially in the wee early hours - making sure they know they aren't alone. A squeeze of the hand, cold towel on their forehead.<br><sub>continued on next post...</sub>",
+                },
+                // Text Post
+                {
+                    type: "text",
+                    title: "What Does Love Look Like to You? II",
+                    topic: "Thoughts",
+                    date: "2024-05-05",
+                    summary: "Love is serving coffee every morning unpaid after my shift and knowing exactly how everyone takes it.<br>Love is spending extra time with a man who thinks I'm his sweetheart, but I am able to make sure he takes his medication because of that title.<br><br>Love is a labor.<p>Death is a hard labor.</p><p>I'm glad I have been called to make it an easier one.<br><br>I hope I am remembered as such. And hopefully someone one day will step into my shoes so that I will be met at my end with ease.",
+                },
+                // Wide Text Post
+                {
+                    type: "text",
+                    title: "Health Care Agents",
+                    topic: "Knowledge",
+                    date: "2023-08-14",
+                    summary: "Your Health Care Agent will have the right to your medical records, consent or refuse any care/treatment/service/procedure that would affect a physical or mental condition, select or discharge health care providers and institutions, approve or disapprove tests surgeries and/or medications, approve or withhold/withdraw artifical nutrition and hydration along with all other forms of health care including CPR, sign up for organ donation, athorize an autopsy, and direct disposition of remains.",
+                },
+                // Image Post
+                {
+                    type: "image",
+                    title: "Path to peace",
+                    image: "https://placehold.co/1920x1080/6B7051/E5E7EB?text=Path+to+Peace"
+                },
+                // Text Post
+                {
+                    type: "text",
+                    title: "Grief Never Goes Away",
+                    topic: "Grief",
+                    date: "2024-05-01",
+                    summary: "Grief never goes away. Grief never gets easier. But my does it show you how you have loved and what a privilege that is. Let your inner child cry. It's a part of the healing process.",
+                },
+                // Image Post
+                {
+                    type: "image",
+                    title: "Planning the future",
+                    image: "https://raw.githubusercontent.com/Aram814/SendMeOnMyWay/refs/heads/main/IMG_9967.png"
+                },
+                // Text Post
+                {
+                    type: "text",
+                    title: "Be You!",
+                    topic: "Reminder",
+                    date: "2024-03-01",
+                    summary: "Just your local Death Doula here with an important message - <br>Have the courage to live your life true to yourself, not the life expected of others!<br>Love you, through death.",
+                }, 
+                // Image Post
+                {
+                    type: "image",
+                    title: "A quiet walk",
+                    image: "https://placehold.co/1920x1080/A5A58D/374151?text=A+Quiet+Walk"
+                },
+                // Wide Text Post
+                {
+                    type: "text",
+                    title: "Advanced Directives",
+                    topic: "Knowledge",
+                    date: "2023-08-07",
+                    summary: "An Advance Directive is a legal document that notes your health care wishes should you become terminally ill and unable to make health care decisions for yourself.<br>They are FREE in EVERY state and you can download, print, and complete one to keep with your important paperwork! Reach out to me for any assistance or questions!",
+                },
+                // Image Post
+                {
+                    type: "image",
+                    title: "Seeking serenity",
+                    image: "https://placehold.co/1920x1080/B2A27A/1A1A1A?text=Seeking+Serenity"
+                },
+                // Text Post
+                {
+                    type: "text",
+                    title: "Are You Prepared?",
+                    topic: "Preparing",
+                    date: "2023-08-04",
+                    summary: "Over the course of time, you may change your mind about all of these details within the documents that I have previously talked about.<br><br>You can do this multiple times. As long as you <strong>UPDATE EVERYTHING</strong>!",
+                },
+                // Image Post
+                {
+                    type: "image",
+                    title: "A fresh start",
+                    image: "https://placehold.co/1920x1080/E5E7EB/6B7051?text=A+Fresh+Start"
+                },
+                // Text Post
+                {
+                    type: "text",
+                    title: "Death = Paperwork",
+                    topic: "Preparing",
+                    date: "2023-07-31",
+                    summary: "Who is going to be your pencil pusher?<ul><li>Advanced Directive</li><li>Durable Power of Attorney</li><li>Will</li><li>Revocable Living Trust</li></ul><br><p>Are you prepared?</p>",
+                },
+                // Image Post
+                {
+                    type: "image",
+                    title: "A quiet road",
+                    image: "https://placehold.co/1920x1080/374151/A5A58D?text=A+Quiet+Road"
+                },
+                // Text Post
+                {
+                    type: "text",
+                    title: "Ethical Will",
+                    topic: "Knowledge",
+                    date: "2023-07-2",
+                    summary: "What is the difference between a legal will and an ethical will?<br>An ethical will can act as the explainer for why you made certain choices within your legal will.",
+                },
+                // Wide Text Post
+                {
+                    type: "text",
+                    title: "Your Story",
+                    topic: "Planning",
+                    date: "2023-07-25",
+                    summary: "Leave your story. What made you, <strong>YOU</strong>? StoryCorps/StoryWorth can be options you choose that I can help you set up and complete from start to finish. Perhaps a family tree or a 'when I die' audio folder. Leave behind letters. Last words with your loved ones with Last[ing] Letters. I can help you facilitate all of this and more!",
+                },
+                // Text Post
+                {
+                    type: "text",
+                    title: "Legacy",
+                    topic: "Planning",
+                    date: "2023-07-11",
+                    summary: "Legacy.. What does that mean to you? Remember by just existing you have already left a mark on this world in some way, shape, or form.",
+                },
+                // Tall Text Post
+                {
+                    type: "text",
+                    title: "Don't Wait Until It's Too Late",
+                    topic: "Conversations",
+                    date: "2023-07-07",
+                    summary: "Words to some are the end all be all. Words to some are their love language. Words somehow leave a big mark on the brain and the heart. <br> People long to hear the following: <ul><li>Forgive me</li><li>I forgive you</li><li>Thank you</li><li>I love you</li><li>I am proud of you</li></ul><br><p>Bottom line: Really love those you love. Seek forgiveness in all aspects. And take the time to release those around you to live on.",
+                },
+                // Text Post
+                {
+                    type: "text",
+                    title: "Clean Up Your Messes Now",
+                    topic: "Preparing",
+                    date: "2023-06-26",
+                    summary: "One mess that can continue to mess up the survivors in your family has to do with billing accounts. Cable, internet, cell phone plans, club memberships, and every other bill that is a subscription. You should have someone else added on the bill with you. There's tons of red tape when shutting down or converting accounts to their name so they can manage them. Calling these companies now might save them the headache later!",
+                },
+                // Image Post
+                {
+                    type: "image",
+                    title: "Wandering in nature",
+                    image: "https://placehold.co/1920x1080/A5A58D/374151?text=Wandering+in+Nature"
+                },
+                // Text Post
+                {
+                    type: "text",
+                    title: "Gifts Beyond the Grave",
+                    topic: "Preparing",
+                    date: "2023-06-23",
+                    summary: "I hate to break it to you, but your kids don't want your stuff. <p>For the most part.</p> <p> They have their own tastes and might not appreciate all of your items the way you do. So, start being the weird person that labels some of their things if you know someone wants something. THat weird snowglobe in the cabinet that you have or a duck sculpture- slap a little sticky note on the bottom for <em>'Susie'</em>.",
+                },
+                // Image Post
+                {
+                    type: "image",
+                    title: "Morning light",
+                    image: "https://placehold.co/1920x1080/B2A27A/1A1A1A?text=Morning+Light"
+                },
+                // Text Post
+                {
+                    type: "text",
+                    title: "So, Why Are You Keeping All This Stuff?",
+                    topic: "Preparing",
+                    date: "2023-06-22",
+                    summary: "Is it something that you still use or does it have old memories? Set aside time and energy to start going through some stuff. Even if it's just 10 minutes a day. When you go through your things reflecting on each item- what it means to you, letting go of what you no longer need, letting go of what no longer serves you can be cathartic! ",
+                },
+                // Text Post
+                {
+                    type: "text",
+                    title: "Döstädning",
+                    topic: "Preparing",
+                    date: "2023-06-21",
+                    summary: "In Swedish tradition, the process of purging is called Döstädning, also known as death cleaning. As you age, the Swedish expect that you will get rid of what is unnecessary and tidy up what's left. Cleaning up is one of the best gifts you can give loved ones and it's FREE. It will save them time, money, and heartache.",
+                },
+                // Text Post
+                {
+                    type: "text",
+                    title: "The Hard Questions",
+                    topic: "Conversations",
+                    date: "2023-06-20",
+                    summary: "Maybe you've already begun making the decisions about what you want at the end of life. If not, now is the time to start. To at least have the contemplations and conversations about it before you might end up in a time crunch with no idea of what you want! I challenge you. Start asking yourself the hard questions!",
+                },
+                // Text Post
+                {
+                    type: "text",
+                    title: "Death is Profound",
+                    topic: "Statistics",
+                    date: "2023-06-19",
+                    summary: "Next to birth, death is one of our most profound experiences. Shouldn't we talk about it, prepare for it, and use what it can teach us about how to live? Did you know that only 10-20% of humans die without warning. The rest of us will have time to get to know what's going to end our lives! It's up to YOU to determine what you want to do until that point!",
+                },
+            ];
+
+            /**
+             * Renders posts into a masonry layout.
+             * @param {Array} posts - Array of post objects to render.
+             * @param {boolean} isAdmin - True if the current user is an admin.
+             */
+            function renderPosts(posts, isAdmin) {
+                columns.forEach(col => col.innerHTML = '');
+                noResultsMessage.classList.add('hidden');
+
                 if (posts.length === 0) {
-                    postsContainer.innerHTML = '<p class="col-span-full text-center text-text">No results found. Please try a different search term.</p>';
+                    noResultsMessage.classList.remove('hidden');
                     return;
                 }
+
                 posts.forEach(post => {
                     const postElement = document.createElement('div');
-                    postElement.className = 'bg-card p-6 rounded-2xl shadow-lg transition-colors-theme';
-                    postElement.innerHTML = `
-                        <img src="${post.image}" alt="${post.title}" class="rounded-xl w-full h-48 object-cover mb-4" />
-                        <h3 class="text-2xl font-bold text-primary mb-2">${post.title}</h3>
-                        <p class="text-sm text-accent mb-4">${post.date} &bull; ${post.topic}</p>
-                        <p class="text-text text-base">${post.summary}</p>
-                    `;
-                    postsContainer.appendChild(postElement);
+                    postElement.className = `bg-card rounded-2xl shadow-lg transition-colors-theme flex-shrink-0 w-full relative`;
+                    
+                    // Only show delete button for posts from the database (not hardcoded ones)
+                    const isDatabasePost = post.id && !post.id.startsWith('static-');
+                    const deleteButtonHtml = isAdmin && isDatabasePost ?
+                        `<button class="delete-btn absolute top-3 right-3 p-2 bg-red-600 text-white rounded-full shadow-md hover:bg-red-700 transition-colors duration-200" data-id="${post.id}">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm6 0a1 1 0 11-2 0v6a1 1 0 112 0V8z" clip-rule="evenodd" />
+                            </svg>
+                        </button>` : '';
+
+                    let innerHTML = '';
+                    if (post.type === 'image') {
+                        innerHTML = `
+                            <div class="relative w-full rounded-2xl overflow-hidden">
+                                ${deleteButtonHtml}
+                                <img src="${post.image}" alt="${post.title}" class="w-full h-auto object-cover" onerror="this.src='https://placehold.co/1920x1080/6B7051/E5E7EB?text=Image+Not+Found'" />
+                                <div class="absolute inset-0 flex items-end p-6 bg-gradient-to-t from-gray-900 via-transparent to-transparent">
+                                    <h3 class="text-3xl font-extrabold text-white">${post.title}</h3>
+                                </div>
+                            </div>
+                        `;
+                    } else {
+                        innerHTML = `
+                            <div class="p-6">
+                                ${deleteButtonHtml}
+                                <h3 class="text-2xl font-bold text-primary mb-2">${post.title}</h3>
+                                <p class="text-sm text-accent mb-4">${post.date} &bull; ${post.topic}</p>
+                                <div class="text-text text-base">${post.summary}</div>
+                            </div>
+                        `;
+                    }
+                    postElement.innerHTML = innerHTML;
+
+                    const shortestColumn = columns.reduce((prev, curr) => 
+                        (prev.offsetHeight < curr.offsetHeight ? prev : curr)
+                    );
+                    shortestColumn.appendChild(postElement);
                 });
             }
 
-            function handleSearch() {
+            /**
+             * Fetches posts from Supabase and updates the UI.
+             */
+            async function fetchPosts() {
+                loadingIndicator.classList.remove('hidden');
+                const { data: posts, error } = await supabase
+                    .from('blog_posts')
+                    .select('*')
+                    .order('created_at', { ascending: false }); // Sort by creation date
+
+                loadingIndicator.classList.add('hidden');
+                
+                if (error) {
+                    console.error('Error fetching posts:', error);
+                    // If an error occurs, just use the hardcoded posts
+                    allPosts = hardcodedPosts;
+                    renderPosts(allPosts, (await supabase.auth.getUser()).data.user);
+                    return;
+                }
+                
+                // Combine hardcoded posts with fetched posts
+                allPosts = hardcodedPosts.concat(posts);
+                renderPosts(allPosts, (await supabase.auth.getUser()).data.user);
+            }
+
+            /**
+             * Handles search input to filter posts.
+             */
+            async function handleSearch() {
                 const query = searchInput.value.toLowerCase().trim();
-                const filteredPosts = blogPosts.filter(post => {
+                const filteredPosts = allPosts.filter(post => {
                     const titleMatch = post.title.toLowerCase().includes(query);
-                    const topicMatch = post.topic.toLowerCase().includes(query);
-                    const dateMatch = post.date.toLowerCase().includes(query);
-                    const summaryMatch = post.summary.toLowerCase().includes(query);
+                    const topicMatch = post.type === 'text' && post.topic && post.topic.toLowerCase().includes(query);
+                    const dateMatch = post.date && post.date.toLowerCase().includes(query);
+                    const summaryMatch = post.type === 'text' && post.summary && post.summary.toLowerCase().includes(query);
                     
                     return titleMatch || topicMatch || dateMatch || summaryMatch;
                 });
-                renderPosts(filteredPosts);
+                
+                renderPosts(filteredPosts, (await supabase.auth.getUser()).data.user);
             }
 
-            // Theme toggle functionality
             const updateTheme = (isDark) => {
                 if (isDark) {
                     body.classList.add('dark');
@@ -373,14 +596,12 @@
                 updateTheme(isDark);
             };
 
-            // Set initial theme based on localStorage or system preference
             const savedTheme = localStorage.getItem('theme');
             const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
             updateTheme(savedTheme === 'dark' || (savedTheme === null && prefersDark));
 
             themeToggleBtn.addEventListener('click', toggleTheme);
 
-            // "Scroll to top" button functionality
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 300) {
                     scrollToTopBtn.classList.remove('hidden');
@@ -396,12 +617,6 @@
                 });
             });
             
-            // Mobile menu logic
-            const mobileMenu = document.getElementById('mobile-menu');
-            const openMenuBtn = document.getElementById('open-menu-btn');
-            const closeMenuBtn = document.getElementById('close-menu-btn');
-            const mobileLinks = mobileMenu.querySelectorAll('a');
-
             openMenuBtn.addEventListener('click', () => {
                 mobileMenu.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
@@ -422,11 +637,108 @@
                 }
             });
 
-            // Add event listener to the search input
+            // Admin login button listeners
+            adminLoginBtn.addEventListener('click', () => {
+                loginFormSection.classList.toggle('hidden');
+                adminSection.classList.add('hidden');
+            });
+            adminLoginBtnMobile.addEventListener('click', () => {
+                loginFormSection.classList.toggle('hidden');
+                adminSection.classList.add('hidden');
+                closeMobileMenu();
+            });
+
+            // Handle login form submission
+            loginForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = e.target['login-email'].value;
+                const password = e.target['login-password'].value;
+                
+                loginMessage.textContent = 'Logging in...';
+                const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+
+                if (error) {
+                    loginMessage.textContent = error.message;
+                    console.error('Login error:', error);
+                } else {
+                    loginMessage.textContent = 'Login successful!';
+                }
+            });
+
+            // Handle add post form submission
+            addPostForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const title = e.target['post-title'].value;
+                const topic = e.target['post-topic'].value;
+                const summary = e.target['post-summary'].value;
+                const image = e.target['post-image'].value;
+                const type = e.target['post-type'].value;
+                const date = new Date().toISOString().slice(0, 10); // YYYY-MM-DD format
+
+                const postData = { title, topic, type, date };
+                if (type === 'text') {
+                    postData.summary = summary;
+                    postData.image = 'https://placehold.co/1920x1080/6B7051/E5E7EB?text=Text+Post';
+                } else { // image post
+                    postData.summary = null;
+                    postData.image = image;
+                }
+
+                formMessage.textContent = 'Submitting post...';
+                const { error } = await supabase.from('blog_posts').insert([postData]);
+
+                if (error) {
+                    formMessage.textContent = `Error: ${error.message}`;
+                    console.error('Error adding post:', error);
+                } else {
+                    formMessage.textContent = 'Post added successfully!';
+                    addPostForm.reset();
+                    fetchPosts(); // Refresh the posts list
+                }
+            });
+
+            // Handle post deletion using event delegation
+            postsContainer.addEventListener('click', async (e) => {
+                if (e.target.closest('.delete-btn')) {
+                    const button = e.target.closest('.delete-btn');
+                    const postId = button.dataset.id;
+                    
+                    formMessage.textContent = 'Deleting post...';
+                    const { error } = await supabase.from('blog_posts').delete().eq('id', postId);
+
+                    if (error) {
+                        formMessage.textContent = `Error: ${error.message}`;
+                        console.error('Error deleting post:', error);
+                    } else {
+                        formMessage.textContent = 'Post deleted successfully!';
+                        fetchPosts(); // Refresh the posts list
+                    }
+                }
+            });
+
+            // Handle logout
+            logoutBtn.addEventListener('click', async () => {
+                await supabase.auth.signOut();
+            });
+
+            // Listen for auth state changes to toggle UI
+            supabase.auth.onAuthStateChange((event, session) => {
+                if (session) {
+                    loginFormSection.classList.add('hidden');
+                    adminSection.classList.remove('hidden');
+                } else {
+                    loginFormSection.classList.add('hidden');
+                    adminSection.classList.add('hidden');
+                    loginMessage.textContent = '';
+                }
+                fetchPosts(); // Re-fetch to show/hide delete buttons
+            });
+
             searchInput.addEventListener('input', handleSearch);
 
-            // Initial render of all posts
-            renderPosts(blogPosts);
+            // Initial fetch of posts when the page loads
+            fetchPosts();
         });
     </script>
 </body>
